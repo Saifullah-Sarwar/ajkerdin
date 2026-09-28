@@ -1,0 +1,2155 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0284c7">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>আমার বাংলা বই - পাঠ ৪৭ : আজকের দিন</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Galada&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+body{font-family:'Hind Siliguri',sans-serif;background:linear-gradient(135deg,#dbeafe 0%,#fef3c7 50%,#e0f2fe 100%);min-height:100vh;user-select:none;overflow-x:hidden;}
+.font-title{font-family:'Galada',cursive;}
+@keyframes float-g{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-8px) rotate(1.5deg)}}
+.animate-float{animation:float-g 3.5s infinite ease-in-out;}
+@keyframes bubble-r{0%{transform:translateY(0) scale(.6);opacity:0}50%{opacity:.8}100%{transform:translateY(-130px) scale(1.2);opacity:0}}
+.bubble{position:absolute;background:rgba(255,255,255,.65);border:1px solid rgba(255,255,255,.9);border-radius:50%;pointer-events:none;animation:bubble-r 4s infinite linear;}
+::-webkit-scrollbar{width:8px;height:8px}
+::-webkit-scrollbar-track{background:#dbeafe}
+::-webkit-scrollbar-thumb{background:#0284c7;border-radius:10px}
+.line-card{transition:all .2s ease-in-out}
+.line-card:hover{transform:translateX(6px)}
+.active-reading{background:#fef08a!important;border-color:#eab308!important;transform:scale(1.02)}
+.tab-btn{transition:all .25s ease}
+.tab-btn.active{background:#0284c7;color:#fff;box-shadow:0 4px 12px rgba(2,132,199,.3)}
+@keyframes praise-b{0%,100%{transform:scale(1)}50%{transform:scale(1.15) rotate(2deg)}}
+.animate-praise{animation:praise-b .6s ease-in-out}
+@keyframes install-pulse{0%,100%{box-shadow:0 0 0 0 rgba(236,72,153,.7)}50%{box-shadow:0 0 0 10px rgba(236,72,153,0)}}
+.install-pulse{animation:install-pulse 2s infinite}
+@keyframes sun-ray-spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+.sun-ray-spin{animation:sun-ray-spin 25s linear infinite;transform-origin:center;}
+@keyframes cloud-drift{0%{transform:translateX(0)}100%{transform:translateX(40px)}}
+.cloud-drift{animation:cloud-drift 8s infinite alternate ease-in-out;}
+@keyframes rain-fall{0%{transform:translateY(-20px);opacity:0}20%{opacity:1}100%{transform:translateY(60px);opacity:0}}
+.rain-drop{animation:rain-fall 1s linear infinite;}
+@keyframes wind-sway{0%,100%{transform:translateX(0) skewX(0)}50%{transform:translateX(8px) skewX(4deg)}}
+.wind-sway{animation:wind-sway 1s infinite ease-in-out;}
+@keyframes snow-drift{0%{transform:translateY(-20px) translateX(0);opacity:0}20%{opacity:1}100%{transform:translateY(70px) translateX(20px);opacity:0}}
+.snow-flake{animation:snow-drift 3s linear infinite;}
+@keyframes bird-fly{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-12px) rotate(2deg)}}
+.bird-fly{animation:bird-fly 2.5s infinite ease-in-out;}
+
+.season-card{
+  border-radius:24px;padding:18px;color:#fff;
+  border:5px solid rgba(255,255,255,.7);
+  box-shadow:0 12px 30px rgba(0,0,0,.2);
+  cursor:pointer;transition:all .35s cubic-bezier(.4,0,.2,1);
+  position:relative;overflow:hidden;min-height:320px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+}
+.season-card:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 20px 40px rgba(0,0,0,.3);}
+.season-card:active{transform:scale(.97);}
+
+.reading-season{
+  border-radius:16px;padding:8px;color:#fff;
+  border:3px solid rgba(255,255,255,.8);
+  cursor:pointer;transition:all .25s;text-align:center;
+  position:relative;overflow:hidden;
+}
+.reading-season:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 8px 20px rgba(0,0,0,.2);}
+.reading-season:active{transform:scale(.96);}
+
+.weather-card{border-radius:24px;padding:20px;color:#fff;border:5px solid rgba(255,255,255,.6);box-shadow:0 12px 30px rgba(0,0,0,.2);cursor:pointer;transition:all .35s;position:relative;overflow:hidden;min-height:220px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;}
+.weather-card:hover{transform:translateY(-6px) scale(1.02);}
+
+.match-item{padding:14px 18px;border-radius:14px;font-weight:900;font-size:18px;cursor:pointer;text-align:center;transition:all .25s;border:3px solid;min-height:60px;display:flex;align-items:center;justify-content:center;}
+.match-item:hover{transform:translateY(-3px);}
+.match-item.selected{transform:scale(1.05);box-shadow:0 0 0 4px rgba(251,191,36,.8);}
+.match-item.matched{background:linear-gradient(135deg,#10b981,#059669)!important;color:#fff!important;border-color:#065f46!important;cursor:default;}
+.match-item.matched::after{content:'✓';margin-left:8px;font-size:22px;}
+
+#settingsFab{position:fixed;top:14px;right:14px;z-index:80;width:52px;height:52px;border-radius:16px;background:linear-gradient(135deg,#0284c7,#0ea5e9);color:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 8px 22px rgba(2,132,199,.5),0 0 0 3px rgba(255,255,255,.3);cursor:pointer;transition:all .3s;border:none;}
+#settingsFab:hover{transform:scale(1.08) rotate(6deg);}
+#settingsFab.open{background:linear-gradient(135deg,#dc2626,#f43f5e);transform:rotate(90deg);}
+#settingsFab .fab-badge{position:absolute;top:-4px;right:-4px;background:#f59e0b;color:#0f172a;font-size:9px;font-weight:900;padding:2px 6px;border-radius:8px;animation:install-pulse 2s infinite;}
+@media (max-width:480px){#settingsFab{width:46px;height:46px;top:10px;right:10px;font-size:19px;border-radius:14px;}}
+#drawerBackdrop{position:fixed;inset:0;z-index:75;background:rgba(15,23,42,.55);backdrop-filter:blur(4px);opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s;}
+#drawerBackdrop.open{opacity:1;visibility:visible;}
+#settingsDrawer{position:fixed;top:0;right:0;bottom:0;width:min(340px,88vw);z-index:85;background:linear-gradient(180deg,#fff,#f0f9ff);box-shadow:-10px 0 40px rgba(2,132,199,.3);transform:translateX(105%);transition:transform .35s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;overflow:hidden;}
+#settingsDrawer.open{transform:translateX(0);}
+@media (max-width:480px){#settingsDrawer{width:92vw;}}
+.drawer-head{background:linear-gradient(135deg,#0284c7,#0ea5e9,#38bdf8);color:#fff;padding:16px 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid #f59e0b;flex-shrink:0;}
+.drawer-head h3{font-family:'Galada',cursive;font-size:20px;}
+.drawer-close{background:rgba(255,255,255,.2);border:none;color:#fff;width:36px;height:36px;border-radius:12px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;}
+.drawer-close:hover{background:rgba(255,255,255,.35);transform:rotate(90deg);}
+.drawer-body{flex:1;overflow-y:auto;padding:16px 14px 20px;display:flex;flex-direction:column;gap:14px;}
+.drawer-section{background:#fff;border:2px solid #bae6fd;border-radius:16px;padding:12px;}
+.drawer-section-title{font-size:11px;font-weight:800;color:#0369a1;letter-spacing:1px;text-transform:uppercase;margin-bottom:9px;display:flex;align-items:center;gap:6px;}
+.drawer-btn{width:100%;display:flex;align-items:center;gap:10px;padding:11px 13px;border-radius:12px;font-weight:700;font-size:14px;cursor:pointer;border:none;text-align:left;transition:all .2s;margin-bottom:7px;color:#fff;}
+.drawer-btn:hover{transform:translateX(-3px);}
+.drawer-btn i{width:22px;text-align:center;font-size:16px;}
+.drawer-btn .btn-label{flex:1;}
+.btn-sky{background:linear-gradient(135deg,#0ea5e9,#0284c7);}
+.btn-emerald{background:linear-gradient(135deg,#16a34a,#15803d);}
+.btn-orange{background:linear-gradient(135deg,#f97316,#ea580c);}
+.btn-purple{background:linear-gradient(135deg,#9333ea,#7c3aed);}
+.btn-pink{background:linear-gradient(135deg,#ec4899,#db2777);}
+.btn-teal{background:linear-gradient(135deg,#14b8a6,#0d9488);}
+.btn-slate{background:linear-gradient(135deg,#475569,#334155);}
+.btn-red{background:linear-gradient(135deg,#dc2626,#b91c1c);}
+.drawer-toggle{display:flex;align-items:center;justify-content:space-between;padding:11px 13px;border-radius:12px;background:#f0f9ff;border:2px solid #bae6fd;cursor:pointer;}
+.drawer-toggle .toggle-left{display:flex;align-items:center;gap:9px;font-weight:700;font-size:13px;color:#0f172a;}
+.drawer-toggle .toggle-left i{font-size:16px;color:#0284c7;width:20px;text-align:center;}
+.drawer-toggle input[type="checkbox"]{appearance:none;-webkit-appearance:none;width:44px;height:24px;border-radius:12px;background:#cbd5e1;position:relative;cursor:pointer;transition:background .25s;flex-shrink:0;}
+.drawer-toggle input[type="checkbox"]::after{content:'';position:absolute;top:2px;left:2px;width:20px;height:20px;border-radius:50%;background:#fff;transition:transform .25s;}
+.drawer-toggle input[type="checkbox"]:checked{background:#0284c7;}
+.drawer-toggle input[type="checkbox"]:checked::after{transform:translateX(20px);}
+.drawer-select{width:100%;padding:10px 12px;border-radius:12px;background:#f0f9ff;border:2px solid #bae6fd;font-weight:700;font-size:14px;font-family:inherit;}
+.drawer-info{background:linear-gradient(135deg,#fef3c7,#fde68a);border:2px solid #f59e0b;border-radius:14px;padding:12px;text-align:center;}
+.drawer-info .nctb{display:inline-block;background:#0f172a;color:#fbbf24;font-weight:900;font-size:12px;padding:3px 12px;border-radius:10px;letter-spacing:1px;}
+.drawer-info p{font-size:10px;color:#78350f;font-weight:700;margin-top:6px;}
+.drawer-footer{flex-shrink:0;padding:12px 14px;background:linear-gradient(180deg,transparent,#dbeafe);border-top:1px solid #bae6fd;text-align:center;font-size:10px;color:#0369a1;font-weight:700;}
+
+/* Tab navigation (hidden by default, used in header) */
+#tabNav{display:flex;flex-wrap:wrap;gap:6px;padding:3px 2px 8px;}
+#tabNav .tab-btn{white-space:nowrap;flex-shrink:0;padding:8px 14px;border-radius:14px;font-size:13px;font-weight:700;cursor:pointer;border:2px solid transparent;transition:all .2s;}
+#tabNav .tab-btn:hover{transform:translateY(-2px);box-shadow:0 4px 10px rgba(0,0,0,.1);}
+#tabNav .tab-btn.active{background:#0284c7!important;color:#fff!important;box-shadow:0 4px 12px rgba(2,132,199,.3);}
+
+/* Section visibility: only active section shown */
+.section-view{display:none;}
+.section-view.active{display:block;}
+
+/* Zoom controls */
+#zoomControls{position:fixed;bottom:20px;right:20px;z-index:70;display:flex;flex-direction:column;gap:6px;}
+#zoomControls button{width:44px;height:44px;border-radius:50%;border:none;background:linear-gradient(135deg,#0284c7,#0ea5e9);color:#fff;font-size:18px;box-shadow:0 6px 18px rgba(2,132,199,.4);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;}
+#zoomControls button:hover{transform:scale(1.1);}
+#zoomControls button:active{transform:scale(.95);}
+#zoomLevel{position:fixed;bottom:20px;right:70px;z-index:70;background:rgba(15,23,42,.8);color:#fff;padding:6px 12px;border-radius:20px;font-size:12px;font-weight:700;display:none;}
+#zoomLevel.show{display:block;}
+
+@media print{
+  @page{size:A4 portrait;margin:1.2cm 1.3cm}
+  html,body{background:#fff!important;padding:0!important;margin:0!important}
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  #appContainer,#settingsFab,#drawerBackdrop,#settingsDrawer,#zoomControls,#zoomLevel{display:none!important}
+  .no-print{display:none!important}
+  #printModal,#installModal{display:none!important}
+  #printArea{display:block!important}
+  .pr-page{font-family:'Hind Siliguri',sans-serif;color:#0f172a;font-size:11.5pt;line-height:1.65}
+  .pr-head{text-align:center;border-bottom:3px solid #0284c7;padding-bottom:7px;margin-bottom:12px}
+  .pr-head h1{font-family:'Galada',cursive;font-size:21pt;color:#075985;margin:3px 0 6px 0}
+  .pr-kicker{font-size:9pt;font-weight:700;color:#0369a1;}
+  .pr-meta{display:flex;justify-content:space-between;gap:10px;font-size:10pt;font-weight:600;flex-wrap:wrap}
+  .pr-name{margin-top:7px;font-size:10pt;font-weight:600;text-align:left}
+  .pr-sec{margin-top:13px;page-break-inside:avoid}
+  .pr-sec>h2{font-size:12.5pt;color:#fff;background:#0284c7;padding:4px 9px;border-radius:5px;margin-bottom:7px;font-weight:700}
+  .pr-ol{margin:0;padding-left:20px}
+  .pr-ol li{margin-bottom:4px;font-weight:600}
+  .pr-table{width:100%;border-collapse:collapse;margin-top:4px;font-size:10.5pt}
+  .pr-table th{background:#e0f2fe;color:#075985;border:1px solid #7dd3fc;padding:5px 7px;text-align:left;font-weight:700}
+  .pr-table td{border:1px solid #bae6fd;padding:5px 7px;font-weight:600}
+  .pr-q{margin-bottom:9px;padding:6px 9px;border:1px dashed #94a3b8;border-radius:7px;page-break-inside:avoid}
+  .pr-opts{margin-left:20px;font-size:10pt;font-weight:600;color:#0369a1}
+  .pr-tf{margin-left:20px;font-size:10.5pt;font-weight:600}
+  .pr-box{display:inline-block;width:12px;height:12px;border:1.4px solid #0f172a;margin:0 3px 0 10px;vertical-align:-2px}
+  .pr-ans{color:#047857;font-weight:700}
+  .pr-foot{margin-top:16px;border-top:2px solid #cbd5e1;padding-top:6px;text-align:center;font-size:8.5pt;color:#64748b;font-weight:600}
+  .pr-pagebreak{page-break-before:always}
+  .pr-emoji-row{font-size:20pt;letter-spacing:10px;margin:3px 0 5px 0;text-align:center}
+  .pr-emoji-line{font-size:16pt;text-align:center;letter-spacing:6px;margin:2px 0}
+}
+</style>
+</head>
+<body class="p-2 sm:p-4 md:p-6 text-gray-800">
+
+<button id="settingsFab" onclick="toggleDrawer()"><i class="fas fa-sliders" id="fabIcon"></i><span class="fab-badge">⚙️</span></button>
+<div id="drawerBackdrop" onclick="closeDrawer()"></div>
+
+<aside id="settingsDrawer">
+  <div class="drawer-head">
+    <div><h3>⚙️ কন্ট্রোল প্যানেল</h3><p style="font-size:10px;opacity:.9;font-weight:600;margin-top:2px;">শব্দ, ডাউনলোড ও অন্যান্য</p></div>
+    <button class="drawer-close" onclick="closeDrawer()"><i class="fas fa-xmark"></i></button>
+  </div>
+  <div class="drawer-body">
+    <div class="drawer-section">
+      <div class="drawer-section-title"><i class="fas fa-volume-high"></i> শব্দ ও ভয়েস</div>
+      <button class="drawer-btn btn-sky" onclick="toggleAudio();updateDrawerSound();"><i class="fas fa-volume-up" id="drawerSoundIcon"></i><span class="btn-label" id="drawerSoundText">শব্দ চালু আছে</span></button>
+      <button class="drawer-btn btn-red" onclick="stopAllSpeech();"><i class="fas fa-stop"></i><span class="btn-label">সব কথা বন্ধ করো</span></button>
+      <div style="margin-top:7px;">
+        <label style="font-size:11px;font-weight:800;color:#0369a1;display:block;margin-bottom:5px;">🎚️ পড়ার গতি</label>
+        <select id="speechRateSelect" onchange="changeSpeechRate(this.value)" class="drawer-select">
+          <option value="0.6">🐢 ধীরে</option>
+          <option value="0.8" selected>🚶 স্বাভাবিক</option>
+          <option value="1.0">🏃 দ্রুত</option>
+        </select>
+      </div>
+    </div>
+    <div class="drawer-section">
+      <div class="drawer-section-title"><i class="fas fa-language"></i> ভাষা / Language</div>
+      <button class="drawer-btn btn-teal" onclick="toggleLanguage();"><i class="fas fa-globe" id="langIcon"></i><span class="btn-label" id="langBtnText">English এ দেখাও</span></button>
+    </div>
+    <div class="drawer-section">
+      <div class="drawer-section-title"><i class="fas fa-file-export"></i> প্রিন্ট ও এক্সপোর্ট</div>
+      <button class="drawer-btn btn-emerald" onclick="openPrintModal();closeDrawer();"><i class="fas fa-print"></i><span class="btn-label">প্রিন্ট কার্যপত্র</span></button>
+      <button class="drawer-btn btn-orange" onclick="downloadPPT();"><i class="fas fa-file-powerpoint"></i><span class="btn-label" id="pptBtnText">পাওয়ারপয়েন্ট (PPT)</span></button>
+      <button class="drawer-btn btn-purple" onclick="downloadHTML();closeDrawer();"><i class="fas fa-download"></i><span class="btn-label">HTML ডাউনলোড</span></button>
+    </div>
+    <div class="drawer-section">
+      <div class="drawer-section-title"><i class="fas fa-mobile-screen"></i> অ্যাপ ইনস্টল</div>
+      <button id="installBtn" class="drawer-btn btn-pink install-pulse" onclick="handleInstallClick();"><i class="fas fa-circle-down"></i><span class="btn-label" id="installBtnText">কম্পিউটার/মোবাইলে ইনস্টল</span></button>
+    </div>
+    <div class="drawer-section">
+      <div class="drawer-section-title"><i class="fas fa-user-graduate"></i> শিশুর নাম</div>
+      <input type="text" id="childNameInput" placeholder="এখানে নাম লিখো..." maxlength="20" class="drawer-select" oninput="saveChildName(this.value)">
+      <div style="margin-top:7px;"><button class="drawer-btn btn-slate" style="margin-bottom:0;font-size:12px;padding:9px;" onclick="clearChildName();document.getElementById('childNameInput').value='';"><i class="fas fa-eraser"></i><span class="btn-label">নাম মুছো</span></button></div>
+    </div>
+    <div class="drawer-section">
+      <div class="drawer-section-title"><i class="fas fa-microphone-lines"></i> প্রশ্ন ভয়েস</div>
+      <label class="drawer-toggle">
+        <span class="toggle-left"><i class="fas fa-volume-high"></i><span>প্রশ্ন পড়ে শোনাবে</span></span>
+        <input type="checkbox" id="questionVoiceToggle" checked onchange="toggleQuestionVoice(this.checked)">
+      </label>
+    </div>
+    <div class="drawer-info"><span class="nctb">NCTB</span><p>জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড<br>আমার বাংলা বই • প্রথম শ্রেণি</p></div>
+  </div>
+  <div class="drawer-footer">🎨 পরিকল্পনা ও ডিজাইনে: <strong>মো: সাইফুল্লাহ সরওয়ার</strong> ⭐</div>
+</aside>
+
+<!-- Zoom controls -->
+<div id="zoomControls">
+  <button onclick="zoomIn()" title="Zoom In"><i class="fas fa-search-plus"></i></button>
+  <button onclick="zoomOut()" title="Zoom Out"><i class="fas fa-search-minus"></i></button>
+  <button onclick="zoomReset()" title="Reset Zoom"><i class="fas fa-undo"></i></button>
+</div>
+<div id="zoomLevel">100%</div>
+
+<div id="appContainer" class="max-w-6xl mx-auto bg-white/95 backdrop-blur-md rounded-3xl shadow-2xl overflow-hidden border-4 border-sky-200">
+
+<header class="bg-gradient-to-r from-sky-600 via-cyan-600 to-blue-600 p-4 sm:p-6 text-white text-center relative overflow-hidden shadow-md">
+  <div class="absolute -top-6 -left-6 w-28 h-28 bg-white/10 rounded-full blur-xl"></div>
+  <div class="absolute -bottom-6 -right-6 w-36 h-36 bg-amber-300/20 rounded-full blur-xl"></div>
+  <div class="relative z-10 flex items-center justify-start gap-3 pr-16">
+    <span class="text-4xl sm:text-6xl animate-float">🌤️</span>
+    <div class="text-left">
+      <div class="flex items-center gap-2 flex-wrap">
+        <span class="bg-amber-300 text-sky-950 text-xs font-black px-3 py-0.5 rounded-full uppercase tracking-wider">পাঠ ৪৭</span>
+        <span class="text-xs text-sky-100 font-semibold">আমার বাংলা বই • ১ম শ্রেণি</span>
+        <span class="text-[10px] bg-white/20 px-2 py-0.5 rounded-full font-bold">পৃষ্ঠা ৬৬-৬৭</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-title text-amber-200 tracking-wide drop-shadow-md mt-0.5">আজকের দিন</h1>
+      <div id="headerGreeting" class="mt-2 inline-flex items-center gap-2 bg-gradient-to-r from-amber-400 via-pink-500 to-rose-500 text-white text-xs sm:text-sm font-black px-4 py-1 rounded-full shadow-lg border border-white/40">
+        <span>✨</span>
+        <span>পরিকল্পনা ও ডিজাইনে: <strong class="text-yellow-200 text-sm sm:text-base font-extrabold">মো: সাইফুল্লাহ সরওয়ার</strong></span>
+        <span>👑</span>
+      </div>
+    </div>
+  </div>
+
+  <nav id="tabNav" class="mt-5 border-t border-white/20 pt-3">
+    <button onclick="switchTab('reading')" id="tab-reading" class="tab-btn active px-3 py-2 rounded-2xl text-xs sm:text-sm font-bold flex items-center gap-1.5 bg-sky-100 text-sky-900"><span>📖</span> পাঠ</button>
+    <button onclick="switchTab('seasons')" id="tab-seasons" class="tab-btn px-3 py-2 rounded-2xl text-xs sm:text-sm font-bold flex items-center gap-1.5 bg-gradient-to-r from-orange-500 to-pink-500 text-white shadow-md"><span>🍃</span> ছয় ঋতু</button>
+    <button onclick="switchTab('seasonwalk')" id="tab-seasonwalk" class="tab-btn px-3 py-2 rounded-2xl text-xs sm:text-sm font-bold flex items-center gap-1.5 bg-gradient-to-r from-emerald-500 to-teal-500 text-white shadow-md"><span>🚶</span> ঋতু ভ্রমণ</button>
+    <button onclick="switchTab('weather')" id="tab-weather" class="tab-btn px-3 py-2 rounded-2xl text-xs sm:text-sm font-bold flex items-center gap-1.5 bg-gradient-to-r from-amber-500 to-yellow-500 text-white shadow-md"><span>🌤️</span> আবহাওয়া</button>
+    <button onclick="switchTab('match')" id="tab-match" class="tab-btn px-3 py-2 rounded-2xl text-xs sm:text-sm font-bold flex items-center gap-1.5 bg-emerald-500 text-white shadow-md"><span>🔗</span> শব্দ মেলাও</button>
+    <button onclick="switchTab('wordbank')" id="tab-wordbank" class="tab-btn px-3 py-2 rounded-2xl text-xs sm:text-sm font-bold flex items-center gap-1.5 bg-pink-500 text-white shadow-md"><span>📚</span> শব্দ</button>
+    <button onclick="switchTab('exercises')" id="tab-exercises" class="tab-btn px-3 py-2 rounded-2xl text-xs sm:text-sm font-bold flex items-center gap-1.5 bg-sky-100/50 text-white hover:bg-sky-100/80 hover:text-sky-900"><span>✍️</span> অনুশীলন</button>
+    <button onclick="switchTab('guide')" id="tab-guide" class="tab-btn px-3 py-2 rounded-2xl text-xs sm:text-sm font-bold flex items-center gap-1.5 bg-teal-400 text-teal-950 shadow-md"><span>👨‍🏫</span> গাইড</button>
+  </nav>
+</header>
+
+<main id="mainContent" class="p-3 sm:p-6 md:p-8">
+
+<!-- READING -->
+<section id="section-reading" class="section-view active space-y-6">
+  <div class="bg-gradient-to-br from-sky-50 via-cyan-50 to-blue-50 rounded-3xl p-4 sm:p-6 border-4 border-sky-300 shadow-lg relative overflow-hidden">
+    <div class="bubble w-4 h-4 left-8 bottom-0"></div>
+    <div class="bubble w-6 h-6 left-1/3 bottom-0" style="animation-delay:1.5s"></div>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+      <div class="lg:col-span-5 flex flex-col items-center">
+        <div class="w-full bg-gradient-to-b from-sky-200 via-amber-100 to-emerald-200 rounded-3xl p-3 border-4 border-white shadow-xl relative overflow-hidden">
+          <div class="grid grid-cols-3 gap-2" id="readingSeasonsGrid"></div>
+          <span class="absolute bottom-1 right-2 bg-white/85 backdrop-blur text-sky-950 text-[9px] font-bold px-2 py-0.5 rounded-full shadow z-10">🍃 বাংলাদেশের ছয় ঋতু</span>
+        </div>
+
+        <div class="mt-4 flex flex-wrap gap-2 w-full justify-center">
+          <button onclick="readEntirePassage()" class="bg-gradient-to-r from-sky-600 to-cyan-600 hover:from-sky-700 hover:to-cyan-700 text-white font-bold px-5 py-2.5 rounded-2xl shadow-lg flex items-center gap-2 text-sm">
+            <i id="playIcon" class="fas fa-volume-up"></i><span id="playBtnText">পুরো পাঠ শোনো 🔊</span>
+          </button>
+          <button onclick="stopAllSpeech()" class="bg-red-500 hover:bg-red-600 text-white font-bold px-4 py-2.5 rounded-2xl shadow-lg transition flex items-center gap-1 text-xs">
+            <i class="fas fa-stop-circle"></i><span>থামো</span>
+          </button>
+        </div>
+        <p class="text-[10px] text-sky-800 font-medium mt-2 text-center">💡 ছয় ঋতুর যেকোনো ছবিতে টাচ করলে আলাদাভাবে বর্ণনা শোনা যাবে</p>
+      </div>
+      <div class="lg:col-span-7 space-y-2">
+        <div class="flex items-center justify-between mb-2 border-b border-sky-200 pb-2">
+          <h2 class="text-lg sm:text-xl font-bold text-sky-900 flex items-center gap-2"><span>📖</span> শুনি ও পড়ি:</h2>
+          <span class="text-xs bg-sky-200 text-sky-900 font-bold px-2.5 py-1 rounded-full" id="sentenceCount">৫টি বাক্য</span>
+        </div>
+        <div id="passageContainer" class="space-y-2 text-base sm:text-lg font-semibold text-slate-800"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-gradient-to-br from-amber-50 to-orange-50 rounded-3xl p-4 sm:p-6 border-4 border-amber-200 shadow-lg">
+    <h3 class="text-lg sm:text-2xl font-bold text-amber-950 flex items-center gap-2 font-title mb-4"><span>💡</span> আজকের দিন কেমন?</h3>
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+      <div class="bg-white rounded-2xl p-3 border-2 border-amber-300 shadow-sm text-center">
+        <div class="text-4xl mb-1">☀️</div>
+        <p class="font-black text-amber-900 text-xs">রোদ</p>
+        <p class="text-[10px] text-slate-600 mt-1">খুব গরম লাগে</p>
+      </div>
+      <div class="bg-white rounded-2xl p-3 border-2 border-slate-300 shadow-sm text-center">
+        <div class="text-4xl mb-1">🌧️</div>
+        <p class="font-black text-slate-900 text-xs">মেঘলা</p>
+        <p class="text-[10px] text-slate-600 mt-1">মেঘ করে আছে</p>
+      </div>
+      <div class="bg-white rounded-2xl p-3 border-2 border-purple-300 shadow-sm text-center">
+        <div class="text-4xl mb-1">🌪️</div>
+        <p class="font-black text-purple-900 text-xs">ঝড়</p>
+        <p class="text-[10px] text-slate-600 mt-1">বাতাস আসছে</p>
+      </div>
+      <div class="bg-white rounded-2xl p-3 border-2 border-blue-300 shadow-sm text-center">
+        <div class="text-4xl mb-1">❄️</div>
+        <p class="font-black text-blue-900 text-xs">শীত</p>
+        <p class="text-[10px] text-slate-600 mt-1">গরম কাপড় পরি</p>
+      </div>
+      <div class="bg-white rounded-2xl p-3 border-2 border-emerald-300 shadow-sm text-center">
+        <div class="text-4xl mb-1">🌈</div>
+        <p class="font-black text-emerald-900 text-xs">চমৎকার</p>
+        <p class="text-[10px] text-slate-600 mt-1">বেড়াতে যাই</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIX SEASONS TAB -->
+<section id="section-seasons" class="section-view space-y-6">
+  <div class="bg-gradient-to-r from-orange-500 via-pink-500 to-purple-500 rounded-3xl p-5 sm:p-6 text-white shadow-xl border-4 border-pink-300">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-5">
+      <div>
+        <span class="bg-white/25 text-xs font-black px-3 py-0.5 rounded-full">🍃 ষড়ঋতুর দেশ</span>
+        <h2 class="text-2xl sm:text-4xl font-title text-amber-100 mt-2">ছয় ঋতুর বাংলাদেশ 🇧🇩</h2>
+        <p class="text-xs sm:text-sm text-pink-100 mt-2">প্রতিটি ঋতুতে টাচ করো — সম্পূর্ণ বর্ণনা শোনো। অন্য ঋতুতে টাচ করলে আগের বর্ণনা সাথে সাথে বন্ধ হবে।</p>
+      </div>
+      <div class="text-6xl animate-float">🍃</div>
+    </div>
+    <div class="mt-4 flex flex-wrap items-center justify-between gap-2 bg-pink-900/40 backdrop-blur rounded-2xl p-3 border border-pink-200/40">
+      <div class="flex items-center gap-2 text-xs sm:text-sm">
+        <i class="fas fa-volume-high text-amber-200"></i>
+        <span id="seasonPlayStatus" class="font-bold text-amber-100">👉 যেকোনো ঋতুতে টাচ করো</span>
+      </div>
+      <button onclick="stopSeasonSpeech()" class="bg-red-500 hover:bg-red-600 text-white font-black px-4 py-2 rounded-xl text-xs sm:text-sm shadow-lg transition active:scale-95 flex items-center gap-1.5">
+        <i class="fas fa-stop-circle"></i> <span>বর্ণনা থামাও</span>
+      </button>
+    </div>
+  </div>
+
+  <div id="seasonsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+
+  <div class="bg-amber-50 rounded-3xl p-5 border-4 border-amber-200 shadow-md">
+    <h4 class="text-lg font-black text-amber-950 mb-3 flex items-center gap-2"><span>💡</span> জানো কি?</h4>
+    <ul class="space-y-2 text-sm text-amber-900 font-medium list-disc list-inside">
+      <li>বাংলাদেশে বছরে <strong>ছয়টি ঋতু</strong> — প্রতিটি প্রায় ২ মাস করে।</li>
+      <li>প্রতি ঋতুর <strong>আলাদা রং ও আবহাওয়া</strong> — এটাই বাংলাদেশের সৌন্দর্য।</li>
+      <li>বিশ্বের খুব কম দেশে ছয় ঋতুর এত সুন্দর প্রকাশ দেখা যায়।</li>
+      <li>ছয় ঋতু: <strong>গ্রীষ্ম, বর্ষা, শরৎ, হেমন্ত, শীত, বসন্ত</strong>।</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SEASON WALK GAME -->
+<section id="section-seasonwalk" class="section-view space-y-4">
+  <div class="bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 rounded-3xl p-4 sm:p-5 text-white shadow-xl border-4 border-emerald-300">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="bg-white/25 text-xs font-black px-2.5 py-0.5 rounded-full">🚶 নতুন অ্যানিমেশন গেম</span>
+          <span class="text-xs text-emerald-100">খোলা আকাশের নিচে ঋতু ভ্রমণ</span>
+        </div>
+        <h3 class="text-2xl sm:text-3xl font-title text-amber-200 mt-1">ঋতু ভ্রমণ 🍃🌸</h3>
+        <p class="text-xs text-emerald-100 mt-1">শিশু হাঁটবে — বর্ণনা শেষ হলে পরের ঋতু আসবে — ছয় ঋতু একে একে আসবে!</p>
+      </div>
+      <div class="flex items-center gap-2 flex-wrap">
+        <div class="bg-white/20 backdrop-blur px-4 py-2 rounded-2xl text-center border border-white/30">
+          <span class="text-[10px] uppercase block text-emerald-100 font-bold">ঋতু</span>
+          <span id="swSeasonName" class="text-lg font-black text-amber-200">গ্রীষ্ম</span>
+        </div>
+        <button onclick="stopSeasonWalkSpeech()" class="bg-red-500 hover:bg-red-600 text-white font-black px-3 py-3 rounded-2xl active:scale-95 text-xs flex items-center gap-1.5 border border-white/30 shadow-lg">
+          <i class="fas fa-stop-circle"></i> থামাও
+        </button>
+        <button onclick="restartSeasonWalk()" class="bg-white/25 hover:bg-white/35 text-white font-black px-3 py-3 rounded-2xl active:scale-95 text-xs flex items-center gap-1.5 border border-white/30">
+          <i class="fas fa-rotate-right"></i> নতুন
+        </button>
+      </div>
+    </div>
+
+    <div class="mt-4 bg-emerald-900/50 backdrop-blur rounded-2xl p-3 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+      <label class="text-xs text-amber-200 font-bold flex items-center gap-2 shrink-0"><i class="fas fa-user-graduate"></i> নাম:</label>
+      <input type="text" id="childNameInputGame" placeholder="নাম লিখো..." maxlength="20" class="flex-1 bg-white/95 text-emerald-950 font-bold px-3 py-2 rounded-xl border-2 border-amber-300 focus:border-amber-500 focus:outline-none text-sm placeholder:text-emerald-400" oninput="saveChildName(this.value); syncNameInputs(this.value);">
+    </div>
+
+    <div class="mt-3 bg-emerald-800/60 backdrop-blur rounded-2xl p-2.5 flex items-center justify-between text-xs">
+      <span class="text-emerald-100 font-bold">🔊 বর্ণনা অবস্থা:</span>
+      <span id="swVoiceStatus" class="font-black text-amber-200 bg-white/10 px-3 py-1 rounded-full">প্রস্তুত</span>
+    </div>
+  </div>
+
+  <div class="relative w-full overflow-hidden rounded-3xl shadow-2xl border-4 border-emerald-300" style="height:560px;">
+    <canvas id="seasonWalkCanvas" class="w-full h-full block"></canvas>
+
+    <div id="swSeasonBanner" class="hidden absolute top-6 left-1/2 -translate-x-1/2 z-40 pointer-events-none">
+      <div class="bg-gradient-to-r from-amber-400 via-orange-500 to-pink-500 px-8 py-4 rounded-3xl shadow-2xl border-4 border-white/70 text-white text-center">
+        <div id="swBannerEmoji" class="text-5xl mb-1">☀️</div>
+        <div id="swBannerName" class="text-3xl sm:text-4xl font-title font-black drop-shadow-lg">গ্রীষ্ম</div>
+        <div id="swBannerSub" class="text-xs font-bold mt-1 bg-white/25 rounded-full px-3 py-1 inline-block">গরমের ঋতু</div>
+      </div>
+    </div>
+
+    <div class="absolute bottom-3 left-1/2 -translate-x-1/2 z-20 bg-white/90 backdrop-blur-md px-5 py-2 rounded-full text-emerald-900 text-xs font-black shadow-xl border-2 border-emerald-400 flex items-center gap-3">
+      <span id="swProgressLabel">প্রথম ঋতু: গ্রীষ্ম</span>
+      <span class="w-32 h-2 bg-emerald-200 rounded-full overflow-hidden">
+        <span id="swProgressBar" class="block h-full bg-gradient-to-r from-emerald-500 to-teal-500 transition-all" style="width:0%"></span>
+      </span>
+    </div>
+
+    <div id="swWinOverlay" class="hidden absolute inset-0 bg-emerald-950/85 backdrop-blur-sm flex-col items-center justify-center text-white text-center p-6 space-y-4 z-50">
+      <div class="text-6xl animate-bounce">🌈</div>
+      <h3 class="text-3xl font-title text-amber-300">তুমি ছয় ঋতুর ভ্রমণ শেষ করেছ!</h3>
+      <p id="swWinMsg" class="text-lg text-emerald-100 max-w-md">ছয় ঋতুর সৌন্দর্য দেখে তুমি অভিভূত!</p>
+      <button onclick="restartSeasonWalk()" class="bg-gradient-to-r from-amber-400 to-amber-500 text-emerald-950 font-black px-8 py-3 rounded-2xl text-lg shadow-xl active:scale-95">আবার ঘুরতে যাও 🚶</button>
+    </div>
+  </div>
+</section>
+
+<!-- WEATHER TAB -->
+<section id="section-weather" class="section-view space-y-6">
+  <div class="bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-500 rounded-3xl p-5 sm:p-6 text-white shadow-xl border-4 border-amber-300">
+    <h2 class="text-2xl sm:text-4xl font-title text-amber-100 mt-2">আবহাওয়া চিনি</h2>
+    <p class="text-xs sm:text-sm text-amber-100 mt-2">প্রতিটি আবহাওয়ার কার্ডে টাচ করো — অ্যানিমেশন দেখো!</p>
+  </div>
+  <div id="weatherGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+</section>
+
+<!-- MATCH GAME -->
+<section id="section-match" class="section-view space-y-6">
+  <div class="bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 rounded-3xl p-5 sm:p-6 text-white shadow-xl border-4 border-emerald-300">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-5">
+      <div>
+        <span class="bg-white/25 text-xs font-black px-3 py-0.5 rounded-full">🔗 মজার খেলা</span>
+        <h2 class="text-2xl sm:text-4xl font-title text-amber-200 mt-2">শব্দ মেলাও</h2>
+      </div>
+      <div class="text-center">
+        <div class="bg-white/20 backdrop-blur px-4 py-2 rounded-2xl border border-white/30">
+          <span class="text-[10px] uppercase block text-emerald-100 font-bold">স্কোর</span>
+          <span id="matchScore" class="text-2xl font-black text-amber-200">০/৫</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-white rounded-3xl p-4 sm:p-6 border-4 border-emerald-200 shadow-lg">
+    <div class="flex items-center justify-between mb-4">
+      <h3 class="text-lg font-black text-emerald-950"><span>🎯</span> সঠিক জোড়া মিলাও:</h3>
+      <button onclick="restartMatchGame()" class="bg-amber-400 hover:bg-amber-300 text-amber-950 text-xs font-black px-3 py-1.5 rounded-xl shadow">
+        <i class="fas fa-rotate-right"></i> আবার
+      </button>
+    </div>
+    <div class="grid grid-cols-2 gap-3 sm:gap-6">
+      <div><p class="text-xs font-black text-sky-700 uppercase tracking-wider mb-2">বাম পাশ</p><div id="matchLeft" class="space-y-3"></div></div>
+      <div><p class="text-xs font-black text-pink-700 uppercase tracking-wider mb-2">ডান পাশ</p><div id="matchRight" class="space-y-3"></div></div>
+    </div>
+    <div id="matchFeedback" class="hidden text-center font-black p-3 mt-4 rounded-2xl"></div>
+    <div id="matchWinOverlay" class="hidden fixed inset-0 z-[60] bg-emerald-950/80 backdrop-blur-sm flex-col items-center justify-center text-white text-center p-6 space-y-4">
+      <div class="text-6xl animate-bounce">🏆</div>
+      <h3 class="text-3xl font-title text-amber-300">অসাধারণ! সব জোড়া মিলেছে!</h3>
+      <p id="matchWinMsg" class="text-lg text-emerald-100">তুমি সব শব্দ সঠিকভাবে মিলিয়েছ!</p>
+      <button onclick="restartMatchGame()" class="bg-gradient-to-r from-amber-400 to-amber-500 text-emerald-950 font-black px-8 py-3 rounded-2xl text-lg shadow-xl active:scale-95">আবার খেলো 🔗</button>
+    </div>
+  </div>
+</section>
+
+<!-- WORD BANK -->
+<section id="section-wordbank" class="section-view space-y-6">
+  <div class="bg-gradient-to-r from-pink-500 to-rose-500 rounded-3xl p-5 text-white shadow-xl border-4 border-pink-300">
+    <h2 class="text-2xl sm:text-4xl font-title text-amber-100">📚 শব্দ ভাণ্ডার</h2>
+  </div>
+  <div id="wordBankGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
+</section>
+
+<!-- EXERCISES -->
+<section id="section-exercises" class="section-view space-y-8">
+  <div class="bg-gradient-to-r from-amber-400 to-yellow-400 p-4 rounded-3xl shadow-lg border-2 border-amber-500 flex items-center justify-between gap-4 flex-wrap">
+    <div class="flex items-center gap-3"><span class="text-3xl">🏆</span><h3 class="text-lg font-black text-amber-950">তোমার অনুশীলনী স্কোর</h3></div>
+    <div class="flex items-center gap-4 bg-white/90 px-5 py-2 rounded-2xl shadow-inner">
+      <div class="text-center"><span class="text-xs text-gray-500 font-bold block">মোট</span><span id="exerciseScore" class="text-2xl font-black text-amber-600">০</span></div>
+      <div id="starBadge" class="text-2xl">⭐ ⭐ ⭐</div>
+      <button onclick="resetExercises()" class="bg-rose-500 text-white text-xs font-black px-3 py-1.5 rounded-xl"><i class="fas fa-rotate-left"></i> আবার</button>
+    </div>
+  </div>
+  <div class="bg-white rounded-3xl p-4 border-4 border-sky-200 shadow-md space-y-4">
+    <h3 class="text-lg font-bold text-sky-950 border-b border-sky-100 pb-3">✍️ অনুশীলন ১: প্রশ্নের উত্তর দাও</h3>
+    <div id="ex1Container" class="space-y-4"></div>
+  </div>
+  <div class="bg-white rounded-3xl p-4 border-4 border-emerald-200 shadow-md space-y-4">
+    <h3 class="text-lg font-bold text-emerald-950 border-b border-emerald-100 pb-3">✅ অনুশীলন ২: সত্য নাকি মিথ্যা?</h3>
+    <div id="ex2Container" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+  </div>
+  <div class="bg-white rounded-3xl p-4 border-4 border-indigo-200 shadow-md space-y-4">
+    <h3 class="text-lg font-bold text-indigo-950 border-b border-indigo-100 pb-3">🎯 অনুশীলন ৩: ঋতু ও আবহাওয়া মিলাও</h3>
+    <div id="ex3Container" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+  </div>
+  <div class="bg-white rounded-3xl p-4 border-4 border-amber-200 shadow-md space-y-4">
+    <h3 class="text-lg font-bold text-amber-950 border-b border-amber-100 pb-3">🧩 অনুশীলন ৪: শব্দের শেষ বর্ণ</h3>
+    <div id="ex4Container" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+  </div>
+</section>
+
+<!-- GUIDE -->
+<section id="section-guide" class="section-view space-y-6">
+  <div class="bg-gradient-to-r from-teal-500 to-emerald-600 rounded-3xl p-6 text-white shadow-xl border-4 border-emerald-300">
+    <h2 class="text-2xl sm:text-4xl font-title text-amber-200">🎓 পাঠদানের নির্দেশনা</h2>
+    <p class="text-xs sm:text-sm text-emerald-100 mt-2">"আজকের দিন" পাঠে শিশুরা আবহাওয়ার বিভিন্ন রূপ শিখবে — পাশাপাশি ছয় ঋতুর সৌন্দর্য উপলব্ধি করবে।</p>
+  </div>
+
+  <div class="bg-white rounded-3xl p-6 border-4 border-emerald-200 shadow-lg space-y-5">
+    <h3 class="text-xl font-bold text-emerald-950 font-title border-b border-emerald-100 pb-3">⏱️ ৪০ মিনিটের ক্লাস পরিকল্পনা</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+      <div class="bg-sky-50 p-4 rounded-2xl"><h5 class="font-black text-sky-900">📖 ধাপ ১ (৮ মি)</h5><p class="text-xs mt-2 text-slate-600">আজকের আবহাওয়া নিয়ে কথা বলুন। জানালার বাইরে তাকাতে বলুন।</p></div>
+      <div class="bg-pink-50 p-4 rounded-2xl"><h5 class="font-black text-pink-900">🍃 ধাপ ২ (১০ মি) — ছয় ঋতু</h5><p class="text-xs mt-2 text-slate-600">ছয় ঋতুর কার্ড দেখিয়ে প্রতিটির বৈশিষ্ট্য শেখান।</p></div>
+      <div class="bg-emerald-50 p-4 rounded-2xl"><h5 class="font-black text-emerald-900">🚶 ধাপ ৩ (১০ মি) — ঋতু ভ্রমণ</h5><p class="text-xs mt-2 text-slate-600">শিশুদের গেমটি চালিয়ে দেখান — ঋতু পরিবর্তন বাস্তবসম্মত।</p></div>
+      <div class="bg-amber-50 p-4 rounded-2xl"><h5 class="font-black text-amber-900">🔗 ধাপ ৪ (৭ মি) — শব্দ মেলাও</h5><p class="text-xs mt-2 text-slate-600">শিশুদের শব্দ মেলানোর খেলা খেলান।</p></div>
+      <div class="bg-indigo-50 p-4 rounded-2xl md:col-span-2"><h5 class="font-black text-indigo-900">✍️ ধাপ ৫ (৫ মি)</h5><p class="text-xs mt-2 text-slate-600">৪টি ডিজিটাল অনুশীলন করান।</p></div>
+    </div>
+  </div>
+
+  <div class="bg-amber-50 rounded-3xl p-5 border-4 border-amber-200 shadow-md space-y-2">
+    <h3 class="text-lg font-black text-amber-950">🌟 বাড়তি টিপস</h3>
+    <ul class="space-y-2 text-sm text-amber-900 font-medium list-disc list-inside">
+      <li>প্রতিদিন সকালে শিশুকে জিজ্ঞেস করুন — "আজকের দিন কেমন?"</li>
+      <li>বৃষ্টির দিনে জানালার কাছে দাঁড়িয়ে বৃষ্টি দেখতে দিন।</li>
+      <li>শীতে গরম কাপড় পরার কারণ ব্যাখ্যা করুন।</li>
+      <li>বসন্তে বাইরে ফুল দেখতে নিয়ে যান — প্রকৃতির সাথে পরিচয় করান।</li>
+      <li>শরতে কাশফুল দেখতে নিয়ে যান — ঋতু পরিবর্তনের বাস্তব উপলব্ধি।</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer class="bg-slate-100 p-5 text-center text-xs border-t border-gray-200 space-y-2">
+  <p class="font-bold text-sky-800">NCTB • আমার বাংলা বই • প্রথম শ্রেণি • পাঠ ৪৭ : আজকের দিন</p>
+  <p class="text-gray-400 text-[11px]">শিশুদের জন্য সহজ ও মজাদার ইন্টারঅ্যাকটিভ বাংলা ডিজিটাল শিক্ষামূলক অ্যাপ • ২০২৬</p>
+</footer>
+
+</div>
+
+<!-- PRINT MODAL -->
+<div id="printModal" class="no-print fixed inset-0 bg-slate-900/70 backdrop-blur-sm z-[90] hidden items-center justify-center p-3 sm:p-4">
+  <div class="bg-white rounded-3xl max-w-xl w-full shadow-2xl overflow-hidden border-4 border-emerald-200 max-h-[92vh] flex flex-col">
+    <div class="bg-gradient-to-r from-emerald-600 to-teal-600 p-4 text-white flex items-center justify-between">
+      <h3 class="text-lg font-black">🖨️ প্রিন্ট উপকরণ</h3>
+      <button onclick="closePrintModal()" class="bg-white/20 w-9 h-9 rounded-full flex items-center justify-center"><i class="fas fa-xmark"></i></button>
+    </div>
+    <div class="p-4 overflow-y-auto space-y-3">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+        <label class="flex items-center gap-2.5 bg-slate-50 border-2 border-slate-200 rounded-xl p-3 cursor-pointer"><input type="checkbox" id="pr-story" checked class="w-4 h-4 accent-sky-600"><span class="text-sm font-bold">📖 পাঠ</span></label>
+        <label class="flex items-center gap-2.5 bg-slate-50 border-2 border-slate-200 rounded-xl p-3 cursor-pointer"><input type="checkbox" id="pr-seasons" checked class="w-4 h-4 accent-pink-600"><span class="text-sm font-bold">🍃 ছয় ঋতু</span></label>
+        <label class="flex items-center gap-2.5 bg-slate-50 border-2 border-slate-200 rounded-xl p-3 cursor-pointer"><input type="checkbox" id="pr-weather" checked class="w-4 h-4 accent-amber-600"><span class="text-sm font-bold">🌤️ আবহাওয়া</span></label>
+        <label class="flex items-center gap-2.5 bg-slate-50 border-2 border-slate-200 rounded-xl p-3 cursor-pointer"><input type="checkbox" id="pr-match" checked class="w-4 h-4 accent-emerald-600"><span class="text-sm font-bold">🔗 শব্দ মেলাও</span></label>
+        <label class="flex items-center gap-2.5 bg-slate-50 border-2 border-slate-200 rounded-xl p-3 cursor-pointer"><input type="checkbox" id="pr-bank" checked class="w-4 h-4 accent-pink-600"><span class="text-sm font-bold">📚 শব্দ ভাণ্ডার</span></label>
+        <label class="flex items-center gap-2.5 bg-slate-50 border-2 border-slate-200 rounded-xl p-3 cursor-pointer"><input type="checkbox" id="pr-ex1" checked class="w-4 h-4 accent-sky-600"><span class="text-sm font-bold">✍️ অনুশীলন ১</span></label>
+        <label class="flex items-center gap-2.5 bg-slate-50 border-2 border-slate-200 rounded-xl p-3 cursor-pointer"><input type="checkbox" id="pr-ex2" checked class="w-4 h-4 accent-sky-600"><span class="text-sm font-bold">✅ অনুশীলন ২</span></label>
+        <label class="flex items-center gap-2.5 bg-slate-50 border-2 border-slate-200 rounded-xl p-3 cursor-pointer"><input type="checkbox" id="pr-ex3" checked class="w-4 h-4 accent-sky-600"><span class="text-sm font-bold">🎯 অনুশীলন ৩</span></label>
+        <label class="flex items-center gap-2.5 bg-slate-50 border-2 border-slate-200 rounded-xl p-3 cursor-pointer"><input type="checkbox" id="pr-ex4" checked class="w-4 h-4 accent-sky-600"><span class="text-sm font-bold">🧩 অনুশীলন ৪</span></label>
+        <label class="flex items-center gap-2.5 bg-slate-50 border-2 border-slate-200 rounded-xl p-3 cursor-pointer"><input type="checkbox" id="pr-key" class="w-4 h-4 accent-emerald-600"><span class="text-sm font-bold">🗝️ উত্তরপত্র</span></label>
+      </div>
+      <div class="flex items-center justify-between gap-2 bg-amber-50 border border-amber-200 rounded-xl p-3">
+        <span class="text-xs font-bold text-amber-900">দ্রুত:</span>
+        <div class="flex gap-2">
+          <button onclick="selectAllPrint(true)" class="text-xs font-black bg-amber-400 text-amber-950 px-3 py-1.5 rounded-lg">সব</button>
+          <button onclick="selectAllPrint(false)" class="text-xs font-black bg-slate-200 text-slate-700 px-3 py-1.5 rounded-lg">কিছু না</button>
+        </div>
+      </div>
+    </div>
+    <div class="p-4 bg-slate-50 border-t flex gap-2.5">
+      <button onclick="generatePrint()" class="flex-1 bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-black py-3 rounded-2xl active:scale-95 flex items-center justify-center gap-2"><i class="fas fa-print"></i> প্রিন্ট</button>
+      <button onclick="closePrintModal()" class="sm:w-32 bg-white text-slate-700 font-bold py-3 rounded-2xl border-2 border-slate-200">বাতিল</button>
+    </div>
+  </div>
+</div>
+
+<div id="installModal" class="no-print fixed inset-0 bg-slate-900/75 backdrop-blur-sm z-[95] hidden items-center justify-center p-3">
+  <div class="bg-white rounded-3xl max-w-lg w-full shadow-2xl overflow-hidden border-4 border-pink-200 max-h-[92vh] flex flex-col">
+    <div class="bg-gradient-to-r from-pink-600 to-rose-600 p-4 text-white flex items-center justify-between">
+      <h3 class="text-lg font-black">📲 ইনস্টল করুন</h3>
+      <button onclick="closeInstallModal()" class="bg-white/20 w-9 h-9 rounded-full flex items-center justify-center"><i class="fas fa-xmark"></i></button>
+    </div>
+    <div class="p-4 overflow-y-auto space-y-3">
+      <div id="installNativeBox" class="hidden bg-emerald-50 border-2 border-emerald-300 rounded-2xl p-4 text-center space-y-2">
+        <div class="text-4xl">✨</div>
+        <button onclick="triggerNativeInstall()" class="w-full bg-gradient-to-r from-pink-600 to-rose-600 text-white font-black py-3 rounded-2xl">🚀 ইনস্টল করুন</button>
+      </div>
+      <p id="installHeaderMsg" class="text-xs text-slate-600 font-semibold bg-pink-50 border border-pink-200 rounded-xl p-3"></p>
+      <div id="installSteps" class="space-y-2.5 text-sm"></div>
+    </div>
+    <div class="p-4 bg-slate-50 border-t"><button onclick="closeInstallModal()" class="w-full bg-slate-700 text-white font-bold py-3 rounded-2xl">বুঝেছি 👍</button></div>
+  </div>
+</div>
+
+<div id="printArea"></div>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════
+   ZOOM CONTROLS
+   ═══════════════════════════════════════════════════════════════ */
+let currentZoom = 1.0;
+function applyZoom(){
+  const c = document.getElementById('appContainer');
+  if(c) c.style.zoom = currentZoom;
+  const zl = document.getElementById('zoomLevel');
+  if(zl){ zl.textContent = Math.round(currentZoom * 100) + '%'; zl.classList.add('show'); clearTimeout(zl._hideTimer); zl._hideTimer = setTimeout(() => zl.classList.remove('show'), 1500); }
+}
+function zoomIn(){ currentZoom = Math.min(1.8, currentZoom + 0.1); applyZoom(); }
+function zoomOut(){ currentZoom = Math.max(0.5, currentZoom - 0.1); applyZoom(); }
+function zoomReset(){ currentZoom = 1.0; applyZoom(); }
+
+/* ═══════════════════════════════════════════════════════════════
+   LANGUAGE TOGGLE
+   ═══════════════════════════════════════════════════════════════ */
+let currentLang = 'bn';
+const LANG_DATA = {
+  bn: {
+    navReading:'📖 পাঠ', navSeasons:'🍃 ছয় ঋতু', navSeasonwalk:'🚶 ঋতু ভ্রমণ', navWeather:'🌤️ আবহাওয়া',
+    navMatch:'🔗 শব্দ মেলাও', navWordbank:'📚 শব্দ', navExercises:'✍️ অনুশীলন', navGuide:'👨‍🏫 গাইড',
+    langBtnText:'English এ দেখাও'
+  },
+  en: {
+    navReading:'📖 Lesson', navSeasons:'🍃 Six Seasons', navSeasonwalk:'🚶 Season Walk', navWeather:'🌤️ Weather',
+    navMatch:'🔗 Match Words', navWordbank:'📚 Words', navExercises:'✍️ Exercises', navGuide:'👨‍🏫 Guide',
+    langBtnText:'বাংলায় দেখাও'
+  }
+};
+function toggleLanguage(){
+  playSound('click');
+  currentLang = currentLang === 'bn' ? 'en' : 'bn';
+  const d = LANG_DATA[currentLang];
+  const map = {
+    'tab-reading': d.navReading, 'tab-seasons': d.navSeasons, 'tab-seasonwalk': d.navSeasonwalk,
+    'tab-weather': d.navWeather, 'tab-match': d.navMatch, 'tab-wordbank': d.navWordbank,
+    'tab-exercises': d.navExercises, 'tab-guide': d.navGuide
+  };
+  Object.keys(map).forEach(id => { const el = document.getElementById(id); if(el) el.innerHTML = map[id]; });
+  const lt = document.getElementById('langBtnText'); if(lt) lt.innerText = d.langBtnText;
+  const li = document.getElementById('langIcon'); if(li) li.className = currentLang === 'bn' ? 'fas fa-globe' : 'fas fa-language';
+  showToast(currentLang === 'bn' ? '🇧🇩 বাংলা ভাষা সক্রিয়' : '🇬🇧 English language active');
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TAB SWITCHING — only one section visible at a time
+   ═══════════════════════════════════════════════════════════════ */
+const ALL_TABS = ['reading','seasons','seasonwalk','weather','match','wordbank','exercises','guide'];
+function switchTab(name){
+  playSound('click');
+  stopAllSpeech();
+  // Hide all sections
+  ALL_TABS.forEach(t => {
+    const sec = document.getElementById('section-' + t);
+    if(sec) sec.classList.remove('active');
+    const btn = document.getElementById('tab-' + t);
+    if(btn) btn.classList.remove('active');
+  });
+  // Show selected
+  const sec = document.getElementById('section-' + name);
+  if(sec) sec.classList.add('active');
+  const btn = document.getElementById('tab-' + name);
+  if(btn) btn.classList.add('active');
+
+  // Stop season walk when leaving
+  if(name !== 'seasonwalk') stopSeasonWalk();
+  // Init season walk when entering
+  if(name === 'seasonwalk') setTimeout(initSeasonWalk, 150);
+  if(name === 'match') setTimeout(renderMatchGame, 100);
+
+  // Scroll to top of content
+  const main = document.getElementById('mainContent');
+  if(main) main.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SPEECH ENGINE — single queue, no overlap
+   ═══════════════════════════════════════════════════════════════ */
+let speechSession = 0;
+let currentSpeechActive = false;
+let currentSpeechEnd = null;
+
+function speakText(text, onEnd=null){
+  if(!audioEnabled){ if(onEnd) onEnd(); return; }
+
+  if('speechSynthesis' in window) window.speechSynthesis.cancel();
+  if(audioPlayerFallback){ audioPlayerFallback.pause(); audioPlayerFallback = null; }
+
+  const mySession = ++speechSession;
+  currentSpeechActive = true;
+  currentSpeechEnd = onEnd;
+
+  getAudioContext();
+  initBengaliVoices();
+
+  function isStale(){ return mySession !== speechSession; }
+  function finish(){
+    if(isStale()) return;
+    currentSpeechActive = false;
+    currentSpeechEnd = null;
+    if(onEnd) onEnd();
+  }
+  function playOnline(phrase){
+    try{
+      const url = `https://translate.google.com/translate_tts?ie=UTF-8&q=${encodeURIComponent(phrase)}&tl=bn&client=tw-ob`;
+      audioPlayerFallback = new Audio(url);
+      audioPlayerFallback.playbackRate = currentSpeechRate;
+      audioPlayerFallback.onended = () => { if(isStale()) return; audioPlayerFallback = null; finish(); };
+      audioPlayerFallback.onerror = () => { if(isStale()) return; audioPlayerFallback = null; finish(); };
+      const p = audioPlayerFallback.play();
+      if(p !== undefined) p.catch(() => { if(!isStale()) finish(); });
+    } catch(e){ if(!isStale()) finish(); }
+  }
+
+  if('speechSynthesis' in window){
+    if(window.speechSynthesis.paused) window.speechSynthesis.resume();
+    setTimeout(() => {
+      if(isStale()) return;
+      if(!availableBengaliVoice){ playOnline(text); return; }
+      try{
+        const u = new SpeechSynthesisUtterance(text);
+        u.lang = 'bn-BD'; u.rate = currentSpeechRate; u.pitch = 1.0;
+        if(availableBengaliVoice) u.voice = availableBengaliVoice;
+        u.onend = () => { if(isStale()) return; finish(); };
+        u.onerror = () => { if(isStale()) return; playOnline(text); };
+        window.speechSynthesis.speak(u);
+      } catch(e){ if(!isStale()) playOnline(text); }
+    }, 60);
+  } else playOnline(text);
+}
+
+function stopAllSpeech(){
+  playSound('click');
+  speechSession++;
+  currentSpeechActive = false;
+  currentSpeechEnd = null;
+  if('speechSynthesis' in window) window.speechSynthesis.cancel();
+  if(audioPlayerFallback){ audioPlayerFallback.pause(); audioPlayerFallback = null; }
+  stopAllAmbientSounds();
+
+  if(swState && swState.walkingPaused){
+    swState.walkingPaused = false;
+    hideSeasonBanner();
+  }
+
+  document.querySelectorAll('.season-card').forEach(el => el.style.transform = '');
+  document.querySelectorAll('.reading-season').forEach(el => el.style.transform = '');
+  const status = document.getElementById('seasonPlayStatus');
+  if(status) status.innerHTML = '🛑 বর্ণনা বন্ধ';
+  const swStatus = document.getElementById('swVoiceStatus');
+  if(swStatus){ swStatus.innerText = 'বন্ধ'; swStatus.className = 'font-black text-rose-200 bg-white/10 px-3 py-1 rounded-full'; }
+  const b = document.getElementById('playBtnText');
+  const i = document.getElementById('playIcon');
+  if(b) b.innerText = 'পুরো পাঠ শোনো 🔊';
+  if(i) i.className = 'fas fa-volume-up';
+  activeReadingIndex = -1;
+  renderPassage();
+  showToast('🔇 সব বর্ণনা বন্ধ করা হয়েছে');
+}
+
+function stopSeasonSpeech(){
+  playSound('click');
+  speechSession++;
+  currentSpeechActive = false;
+  if('speechSynthesis' in window) window.speechSynthesis.cancel();
+  if(audioPlayerFallback){ audioPlayerFallback.pause(); audioPlayerFallback = null; }
+  stopAllAmbientSounds();
+  document.querySelectorAll('.season-card').forEach(el => el.style.transform = '');
+  const status = document.getElementById('seasonPlayStatus');
+  if(status) status.innerHTML = '🛑 বর্ণনা বন্ধ করা হয়েছে';
+}
+
+function stopSeasonWalkSpeech(){
+  playSound('click');
+  speechSession++;
+  currentSpeechActive = false;
+  if('speechSynthesis' in window) window.speechSynthesis.cancel();
+  if(audioPlayerFallback){ audioPlayerFallback.pause(); audioPlayerFallback = null; }
+  stopAllAmbientSounds();
+  if(swState && swState.walkingPaused){
+    swState.walkingPaused = false;
+    hideSeasonBanner();
+  }
+  const swStatus = document.getElementById('swVoiceStatus');
+  if(swStatus){ swStatus.innerText = 'বন্ধ'; swStatus.className = 'font-black text-rose-200 bg-white/10 px-3 py-1 rounded-full'; }
+  showToast('🔇 ঋতু ভ্রমণের বর্ণনা বন্ধ — হাঁটা চলছে');
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   AMBIENT SOUND ENGINE — season-specific soft sounds
+   ═══════════════════════════════════════════════════════════════ */
+let ambientNodes = [];
+function stopAllAmbientSounds(){
+  ambientNodes.forEach(n => { try{ n.stop(); }catch(e){} });
+  ambientNodes = [];
+}
+
+function playSeasonAmbient(seasonIdx){
+  stopAllAmbientSounds();
+  if(!audioEnabled) return;
+  try{
+    const ctx = getAudioContext(); if(!ctx) return;
+    const now = ctx.currentTime;
+
+    function makeNoise(duration, gainVal, filterType, filterFreq){
+      const bufferSize = Math.floor(ctx.sampleRate * duration);
+      const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+      const data = buffer.getChannelData(0);
+      for(let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1;
+      const src = ctx.createBufferSource();
+      src.buffer = buffer;
+      src.loop = true;
+      const filter = ctx.createBiquadFilter();
+      filter.type = filterType || 'lowpass';
+      filter.frequency.value = filterFreq || 400;
+      const g = ctx.createGain();
+      g.gain.value = gainVal;
+      src.connect(filter); filter.connect(g); g.connect(ctx.destination);
+      src.start(now);
+      src.stop(now + duration);
+      ambientNodes.push(src);
+      return src;
+    }
+
+    if(seasonIdx === 0){ // গ্রীষ্ম — গরমের গুঞ্জন
+      makeNoise(3.5, 0.03, 'lowpass', 300);
+      const osc = ctx.createOscillator();
+      osc.type = 'sine'; osc.frequency.value = 80;
+      const g = ctx.createGain(); g.gain.value = 0.015;
+      osc.connect(g); g.connect(ctx.destination);
+      osc.start(now); osc.stop(now + 3.5);
+      ambientNodes.push(osc);
+    } else if(seasonIdx === 1){ // বর্ষা — বৃষ্টির শব্দ
+      makeNoise(3.5, 0.06, 'highpass', 2000);
+      makeNoise(3.5, 0.03, 'lowpass', 500);
+    } else if(seasonIdx === 2){ // শরৎ — মৃদু বাতাস
+      makeNoise(3.5, 0.02, 'lowpass', 400);
+    } else if(seasonIdx === 3){ // হেমন্ত — পাখির ডাক
+      makeNoise(3.5, 0.01, 'lowpass', 200);
+      const osc = ctx.createOscillator();
+      osc.type = 'sine'; osc.frequency.setValueAtTime(1200, now);
+      osc.frequency.exponentialRampToValueAtTime(1800, now + 0.15);
+      osc.frequency.exponentialRampToValueAtTime(900, now + 0.3);
+      const g = ctx.createGain();
+      g.gain.setValueAtTime(0.04, now);
+      g.gain.exponentialRampToValueAtTime(0.001, now + 0.4);
+      osc.connect(g); g.connect(ctx.destination);
+      osc.start(now); osc.stop(now + 0.4);
+      ambientNodes.push(osc);
+    } else if(seasonIdx === 4){ // শীত — কুয়াশার মৃদু শব্দ
+      makeNoise(3.5, 0.015, 'lowpass', 150);
+    } else if(seasonIdx === 5){ // বসন্ত — পাখির গান
+      makeNoise(3.5, 0.01, 'lowpass', 300);
+      [0, 0.3, 0.6].forEach((t, i) => {
+        const osc = ctx.createOscillator();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(1400 + i * 200, now + t);
+        osc.frequency.exponentialRampToValueAtTime(2000 + i * 200, now + t + 0.1);
+        osc.frequency.exponentialRampToValueAtTime(1100 + i * 100, now + t + 0.25);
+        const g = ctx.createGain();
+        g.gain.setValueAtTime(0.03, now + t);
+        g.gain.exponentialRampToValueAtTime(0.001, now + t + 0.3);
+        osc.connect(g); g.connect(ctx.destination);
+        osc.start(now + t); osc.stop(now + t + 0.35);
+        ambientNodes.push(osc);
+      });
+    }
+  } catch(e){}
+}
+
+/* DRAWER */
+function openDrawer(){document.getElementById('settingsDrawer').classList.add('open');document.getElementById('drawerBackdrop').classList.add('open');document.getElementById('settingsFab').classList.add('open');document.getElementById('fabIcon').className='fas fa-xmark';document.body.style.overflow='hidden';}
+function closeDrawer(){document.getElementById('settingsDrawer').classList.remove('open');document.getElementById('drawerBackdrop').classList.remove('open');document.getElementById('settingsFab').classList.remove('open');document.getElementById('fabIcon').className='fas fa-sliders';document.body.style.overflow='';}
+function toggleDrawer(){playSound('click');const d=document.getElementById('settingsDrawer');if(d.classList.contains('open'))closeDrawer();else openDrawer();}
+function updateDrawerSound(){const i=document.getElementById('drawerSoundIcon'),t=document.getElementById('drawerSoundText');if(audioEnabled){i.className='fas fa-volume-up';t.innerText='শব্দ চালু আছে';}else{i.className='fas fa-volume-xmark';t.innerText='শব্দ বন্ধ আছে';}}
+function syncNameInputs(n){const a=document.getElementById('childNameInput');const b=document.getElementById('childNameInputGame');if(a&&a.value!==n)a.value=n;if(b&&b.value!==n)b.value=n;}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDrawer();});
+
+/* DATA */
+const LESSON_SENTENCES = [
+  'আজ অনেক রোদ। খুব গরম লাগছে।',
+  'অনেক মেঘ করেছে। আজ মেঘলা দিন।',
+  'এখন অনেক বাতাস। ঝড় আসছে।',
+  'শীতকালে শীত লাগে। গরম কাপড় গায়ে দিই।',
+  'খুব চমৎকার দিন। চলো, বেড়াতে যাই।'
+];
+
+const SEASONS = [
+  { name:'গ্রীষ্ম', emoji:'☀️', subtitle:'গরমের ঋতু', period:'বৈশাখ-জ্যৈষ্ঠ', bg:'linear-gradient(135deg,#f97316,#dc2626,#fbbf24)', desc:'গ্রীষ্মকালে খুব গরম পড়ে। সূর্য প্রচণ্ড তাপ দেয়। গাছের পাতা শুকিয়ে যায়।', sound:'গ্রীষ্মকাল। এটি গরমের ঋতু। বৈশাখ ও জ্যৈষ্ঠ মাসে খুব গরম পড়ে। সূর্য প্রচণ্ড তাপ দেয়।', anim:'summer' },
+  { name:'বর্ষা', emoji:'🌧️', subtitle:'বৃষ্টির ঋতু', period:'আষাঢ়-শ্রাবণ', bg:'linear-gradient(135deg,#0369a1,#0891b2,#0ea5e9)', desc:'বর্ষায় অনেক বৃষ্টি হয়। নদী-নালা পানিতে ভরে যায়। সবুজে ভরে যায় চারপাশ।', sound:'বর্ষাকাল। এটি বৃষ্টির ঋতু। আষাঢ় ও শ্রাবণ মাসে অনেক বৃষ্টি হয়। নদী-নালা পানিতে ভরে যায়।', anim:'rainy' },
+  { name:'শরৎ', emoji:'🌾', subtitle:'কাশফুলের ঋতু', period:'ভাদ্র-আশ্বিন', bg:'linear-gradient(135deg,#7dd3fc,#bae6fd,#f0f9ff)', desc:'শরতে আকাশে সাদা মেঘ ভাসে। কাশফুল ফোটে নদীর ধারে। রাতের আকাশে তারা ঝলমল করে।', sound:'শরৎকাল। এটি কাশফুলের ঋতু। ভাদ্র ও আশ্বিন মাসে সাদা কাশফুল ফোটে। আকাশে সাদা মেঘ ভাসে।', anim:'autumn' },
+  { name:'হেমন্ত', emoji:'🌾', subtitle:'সোনালি ফসলের ঋতু', period:'কার্তিক-অগ্রহায়ণ', bg:'linear-gradient(135deg,#f59e0b,#fbbf24,#fef3c7)', desc:'হেমন্তে ধান পেকে যায়। মাঠভরা সোনালি ধান। কৃষকরা নতুন ধান ঘরে তোলেন।', sound:'হেমন্তকাল। এটি সোনালি ফসলের ঋতু। কার্তিক ও অগ্রহায়ণ মাসে ধান পেকে যায়। মাঠভরা সোনালি ধান দেখি।', anim:'lateautumn' },
+  { name:'শীত', emoji:'❄️', subtitle:'ঠান্ডার ঋতু', period:'পৌষ-মাঘ', bg:'linear-gradient(135deg,#0ea5e9,#0369a1,#075985)', desc:'শীতে অনেক ঠান্ডা পড়ে। কুয়াশায় সব ঢাকা পড়ে যায়। গরম কাপড় পরে থাকি।', sound:'শীতকাল। এটি ঠান্ডার ঋতু। পৌষ ও মাঘ মাসে অনেক ঠান্ডা পড়ে। কুয়াশায় সব ঢাকা পড়ে যায়।', anim:'winter' },
+  { name:'বসন্ত', emoji:'🌸', subtitle:'ফুলের ঋতু', period:'ফাল্গুন-চৈত্র', bg:'linear-gradient(135deg,#ec4899,#f472b6,#fce7f3)', desc:'বসন্তে গাছে গাছে ফুল ফোটে। পাখিরা গান গায়। ঋতুর রাজা বসন্ত।', sound:'বসন্তকাল। এটি ফুলের ঋতু। ফাল্গুন ও চৈত্র মাসে গাছে গাছে ফুল ফোটে। পাখিরা মধুর গান গায়। বসন্তকে ঋতুরাজ বলা হয়।', anim:'spring' }
+];
+
+const SEASON_ENV = [
+  { skyTop:[251,191,36], skyBot:[254,215,170], sun:[251,146,60], sunSize:38, hillFar:[217,119,6], hillNear:[180,83,9], ground:[120,113,108], grass:[180,83,9], tree:[101,163,13], treeDark:[120,53,15], weather:'none', extra:'heatWave' },
+  { skyTop:[51,65,85], skyBot:[100,116,139], sun:[148,163,184], sunSize:32, hillFar:[22,101,52], hillNear:[20,83,45], ground:[87,83,78], grass:[22,101,52], tree:[21,128,61], treeDark:[15,60,40], weather:'heavyRain', extra:'puddle' },
+  { skyTop:[125,211,252], skyBot:[224,242,254], sun:[253,224,71], sunSize:36, hillFar:[134,239,172], hillNear:[34,197,94], ground:[180,160,100], grass:[74,222,128], tree:[22,163,74], treeDark:[22,101,52], weather:'kash', extra:'kashFlower' },
+  { skyTop:[251,191,36], skyBot:[254,240,138], sun:[245,158,11], sunSize:40, hillFar:[202,138,4], hillNear:[161,98,7], ground:[146,100,30], grass:[234,179,8], tree:[202,138,4], treeDark:[161,98,7], weather:'goldenLeaves', extra:'paddy' },
+  { skyTop:[203,213,225], skyBot:[226,232,240], sun:[226,232,240], sunSize:28, hillFar:[148,163,184], hillNear:[100,116,139], ground:[120,113,108], grass:[148,163,184], tree:[100,116,139], treeDark:[51,65,85], weather:'snow', extra:'fog' },
+  { skyTop:[186,230,253], skyBot:[252,231,243], sun:[253,224,71], sunSize:36, hillFar:[134,239,172], hillNear:[34,197,94], ground:[120,113,108], grass:[74,222,128], tree:[34,197,94], treeDark:[22,101,52], weather:'petals', extra:'flowers' }
+];
+
+const WEATHER_TYPES = [
+  { name:'রোদ', emoji:'☀️', bg:'linear-gradient(135deg,#fbbf24,#f59e0b,#dc2626)', desc:'আজ অনেক রোদ। খুব গরম লাগছে।', sound:'রোদ। আজ অনেক রোদ। খুব গরম লাগছে।' },
+  { name:'মেঘলা', emoji:'🌧️', bg:'linear-gradient(135deg,#475569,#64748b,#94a3b8)', desc:'অনেক মেঘ করেছে। আজ মেঘলা দিন।', sound:'মেঘলা। অনেক মেঘ করেছে। আজ মেঘলা দিন।' },
+  { name:'ঝড়', emoji:'🌪️', bg:'linear-gradient(135deg,#4c1d95,#7c3aed,#5b21b6)', desc:'এখন অনেক বাতাস। ঝড় আসছে।', sound:'ঝড়। এখন অনেক বাতাস। ঝড় আসছে।' },
+  { name:'শীত', emoji:'❄️', bg:'linear-gradient(135deg,#0ea5e9,#0284c7,#075985)', desc:'শীতকালে শীত লাগে। গরম কাপড় গায়ে দিই।', sound:'শীত। শীতকালে শীত লাগে। গরম কাপড় গায়ে দিই।' },
+  { name:'চমৎকার দিন', emoji:'🌈', bg:'linear-gradient(135deg,#10b981,#0ea5e9,#8b5cf6)', desc:'খুব চমৎকার দিন। চলো, বেড়াতে যাই।', sound:'চমৎকার দিন। চলো, বেড়াতে যাই।' }
+];
+
+const MATCH_PAIRS = [
+  { left:'নদী', right:'নৌকা', leftEmoji:'🌊', rightEmoji:'⛵' },
+  { left:'পাখি', right:'গান', leftEmoji:'🐦', rightEmoji:'🎵' },
+  { left:'সবুজ', right:'পাতা', leftEmoji:'💚', rightEmoji:'🍃' },
+  { left:'ঝড়', right:'বাতাস', leftEmoji:'🌪️', rightEmoji:'💨' },
+  { left:'ঘুম', right:'বিছানা', leftEmoji:'😴', rightEmoji:'🛏️' }
+];
+
+const WORD_BANK = [
+  { word:'রোদ', emoji:'☀️', meaning:'সূর্যের আলো', breakdown:'রো + দ' },
+  { word:'মেঘ', emoji:'☁️', meaning:'আকাশের সাদা বাষ্প', breakdown:'মে + ঘ' },
+  { word:'বাতাস', emoji:'💨', meaning:'বায়ুপ্রবাহ', breakdown:'বা + তা + স' },
+  { word:'ঝড়', emoji:'🌪️', meaning:'প্রচণ্ড ঝড়ো বাতাস', breakdown:'ঝ + ড়' },
+  { word:'শীত', emoji:'❄️', meaning:'ঠান্ডার অনুভূতি', breakdown:'শী + ত' },
+  { word:'কাপড়', emoji:'👕', meaning:'গায়ে পরিধান', breakdown:'কা + প + ড়' },
+  { word:'বসন্ত', emoji:'🌸', meaning:'ফুলের ঋতু', breakdown:'ব + স + ন + ্ + ত' },
+  { word:'বর্ষা', emoji:'🌧️', meaning:'বৃষ্টির ঋতু', breakdown:'ব + র + ্ + ষ + া' },
+  { word:'হেমন্ত', emoji:'🌾', meaning:'ফসল কাটার ঋতু', breakdown:'হে + ম + ন + ্ + ত' },
+  { word:'কাশফুল', emoji:'🌾', meaning:'শরতের সাদা ফুল', breakdown:'কা + শ + ফু + ল' },
+  { word:'ধান', emoji:'🌾', meaning:'চালের গাছ', breakdown:'ধা + ন' },
+  { word:'ফুল', emoji:'🌸', meaning:'গাছের সুন্দর অংশ', breakdown:'ফু + ল' }
+];
+
+/* STATE */
+let audioEnabled = true;
+let currentSpeechRate = 0.8;
+let activeReadingIndex = -1;
+let childName = '';
+let questionVoiceEnabled = true;
+let ex1Answers = {}, ex2Answers = {}, ex3Answers = {}, ex4Answers = {};
+let matchState = { pairs: [], selectedLeft: null, selectedRight: null, matched: 0 };
+let swState = null;
+let swAnimId = null;
+let swLastTime = 0;
+
+try {
+  childName = localStorage.getItem('adChildName') || '';
+  const qv = localStorage.getItem('adQuestionVoice');
+  if(qv === 'false') questionVoiceEnabled = false;
+} catch(e){}
+
+const BN_DIGITS = ['০','১','২','৩','৪','৫','৬','৭','৮','৯'];
+function toBn(v){ return String(v).replace(/\d/g, d => BN_DIGITS[+d]); }
+function getNamePrefix(){ return childName && childName.trim() ? childName.trim() + ', ' : ''; }
+function saveChildName(name){ childName = name; try { localStorage.setItem('adChildName', name); } catch(e){} updateHeaderGreeting(); syncNameInputs(name); }
+function clearChildName(){ playSound('click'); childName = ''; syncNameInputs(''); try { localStorage.setItem('adChildName', ''); } catch(e){} updateHeaderGreeting(); showToast('নাম মুছে ফেলা হয়েছে।'); }
+function updateHeaderGreeting(){
+  const el = document.getElementById('headerGreeting');
+  if(!el) return;
+  const n = (childName || '').trim();
+  if(n) el.innerHTML = `<span>👋</span><span>স্বাগতম, <strong class="text-yellow-200 text-sm sm:text-base font-extrabold">${n}</strong>! শুভ শিক্ষা 🎓</span><span>✨</span>`;
+  else el.innerHTML = `<span>✨</span><span>পরিকল্পনা ও ডিজাইনে: <strong class="text-yellow-200 text-sm sm:text-base font-extrabold">মো: সাইফুল্লাহ সরওয়ার</strong></span><span>👑</span>`;
+}
+
+/* AUDIO */
+const PRAISES = ['বাহবা সুন্দর!','অসাধারণ হয়েছে!','খুব ভালো!','অপূর্ব!','তুমি দারুণ পারো!'];
+const RETRIES = ['আবার চেষ্টা করো!','চিন্তা করে আবার ট্রাই করো!','হলো না, আবার চেষ্টা করো!'];
+function getRandomItem(a){ return a[Math.floor(Math.random()*a.length)]; }
+
+let audioCtx = null;
+function getAudioContext(){ if(!audioCtx){ const AC = window.AudioContext || window.webkitAudioContext; if(AC) audioCtx = new AC(); } if(audioCtx && audioCtx.state === 'suspended') audioCtx.resume(); return audioCtx; }
+function playSound(type){
+  if(!audioEnabled) return;
+  try{
+    const ctx = getAudioContext(); if(!ctx) return;
+    const o = ctx.createOscillator(), g = ctx.createGain();
+    o.connect(g); g.connect(ctx.destination);
+    const now = ctx.currentTime;
+    if(type === 'correct'){
+      o.type='triangle';
+      [523.25,659.25,783.99,1046.5].forEach((f,i) => o.frequency.setValueAtTime(f, now + i*.1));
+      g.gain.setValueAtTime(.3,now); g.gain.exponentialRampToValueAtTime(.01,now+.5);
+      o.start(now); o.stop(now+.5);
+    } else if(type === 'wrong'){
+      o.type='sawtooth';
+      o.frequency.setValueAtTime(220,now); o.frequency.setValueAtTime(164.81,now+.15);
+      g.gain.setValueAtTime(.3,now); g.gain.exponentialRampToValueAtTime(.01,now+.4);
+      o.start(now); o.stop(now+.4);
+    } else if(type === 'click'){
+      o.type='sine';
+      o.frequency.setValueAtTime(600,now); o.frequency.exponentialRampToValueAtTime(200,now+.05);
+      g.gain.setValueAtTime(.2,now); g.gain.exponentialRampToValueAtTime(.01,now+.05);
+      o.start(now); o.stop(now+.05);
+    } else if(type === 'chime'){
+      o.type='sine';
+      [880,1100,1320].forEach((f,i) => o.frequency.setValueAtTime(f, now + i*.15));
+      g.gain.setValueAtTime(.25,now); g.gain.exponentialRampToValueAtTime(.01,now+.5);
+      o.start(now); o.stop(now+.5);
+    } else if(type === 'step'){
+      o.type='sine';
+      o.frequency.setValueAtTime(300,now); o.frequency.exponentialRampToValueAtTime(150,now+.06);
+      g.gain.setValueAtTime(.08,now); g.gain.exponentialRampToValueAtTime(.01,now+.08);
+      o.start(now); o.stop(now+.08);
+    } else if(type === 'seasonChange'){
+      o.type='sine';
+      [523.25,659.25,783.99].forEach((f,i) => o.frequency.setValueAtTime(f, now + i*.12));
+      g.gain.setValueAtTime(.12,now); g.gain.exponentialRampToValueAtTime(.01,now+.6);
+      o.start(now); o.stop(now+.6);
+    }
+  } catch(e){}
+}
+
+let availableBengaliVoice = null;
+let audioPlayerFallback = null;
+function initBengaliVoices(){
+  if('speechSynthesis' in window){
+    const v = window.speechSynthesis.getVoices();
+    availableBengaliVoice = v.find(x => x.lang.toLowerCase().includes('bn') || x.lang.toLowerCase().includes('bangla') || x.lang.toLowerCase().includes('bengali') || x.name.toLowerCase().includes('bengali') || x.name.toLowerCase().includes('bangla')) || null;
+  }
+}
+if('speechSynthesis' in window){ window.speechSynthesis.onvoiceschanged = initBengaliVoices; initBengaliVoices(); }
+
+function stopAudio(){ stopAllSpeech(); }
+function toggleAudio(){ audioEnabled = !audioEnabled; if(!audioEnabled) stopAllSpeech(); else playSound('click'); updateDrawerSound(); }
+function changeSpeechRate(r){ currentSpeechRate = parseFloat(r); playSound('click'); }
+function toggleQuestionVoice(enabled){
+  questionVoiceEnabled = enabled;
+  try { localStorage.setItem('adQuestionVoice', enabled ? 'true' : 'false'); } catch(e){}
+  playSound('click');
+  const cb1 = document.getElementById('questionVoiceToggle');
+  if(cb1) cb1.checked = enabled;
+  if(enabled) showToast('🔊 প্রশ্ন ভয়েস চালু');
+  else { showToast('🔇 প্রশ্ন ভয়েস বন্ধ'); stopAllSpeech(); }
+}
+
+/* READING */
+function renderReadingSeasons(){
+  const grid = document.getElementById('readingSeasonsGrid');
+  if(!grid) return;
+  grid.innerHTML = SEASONS.map((s, i) => `
+    <div onclick="speakReadingSeason(${i})" class="reading-season" style="background:${s.bg};" data-rseason="${i}">
+      <div class="mb-1" style="height:60px;">${getSeasonSVG(s.anim)}</div>
+      <div class="text-lg font-black font-title drop-shadow-md">${s.emoji}</div>
+      <div class="text-[11px] font-black">${s.name}</div>
+    </div>
+  `).join('');
+}
+
+function speakReadingSeason(i){
+  const s = SEASONS[i];
+  playSound('chime');
+  playSeasonAmbient(i);
+  document.querySelectorAll('.reading-season').forEach(el => el.style.transform = '');
+  const card = document.querySelector(`.reading-season[data-rseason="${i}"]`);
+  if(card) card.style.transform = 'scale(1.08)';
+  speakText(`${s.name}। ${s.subtitle}। ${s.desc}`, () => {
+    if(card) card.style.transform = '';
+    stopAllAmbientSounds();
+  });
+}
+
+function renderPassage(){
+  const c = document.getElementById('passageContainer');
+  if(!c) return;
+  c.innerHTML = LESSON_SENTENCES.map((s,i) => {
+    const a = (activeReadingIndex === i);
+    return `<div onclick="readLine(${i})" class="line-card p-3 rounded-2xl border-2 ${a ? 'active-reading' : 'bg-white border-sky-100 hover:border-sky-300'} cursor-pointer flex items-center justify-between gap-3 shadow-sm transition">
+      <div class="flex items-center gap-3">
+        <span class="w-7 h-7 rounded-full ${a ? 'bg-amber-500 text-white' : 'bg-sky-100 text-sky-800'} text-xs font-black flex items-center justify-center shrink-0">${toBn(i+1)}</span>
+        <span class="text-gray-800 font-bold">${s}</span>
+      </div>
+      <i class="fas ${a ? 'fa-volume-high text-amber-600 animate-pulse' : 'fa-volume-low text-sky-500'} text-sm"></i>
+    </div>`;
+  }).join('');
+  const sc = document.getElementById('sentenceCount');
+  if(sc) sc.innerText = toBn(LESSON_SENTENCES.length) + 'টি বাক্য';
+}
+function readLine(i){
+  playSound('click');
+  activeReadingIndex = i; renderPassage();
+  speakText(LESSON_SENTENCES[i], () => { activeReadingIndex = -1; renderPassage(); });
+}
+function readEntirePassage(){
+  playSound('click');
+  if(activeReadingIndex !== -1){ stopAllSpeech(); return; }
+  const pt = document.getElementById('playBtnText');
+  const pi = document.getElementById('playIcon');
+  if(pt) pt.innerText = 'পড়া শুনছো... 🔊';
+  if(pi) pi.className = 'fas fa-spinner fa-spin';
+  let idx = 0;
+  function next(){
+    if(idx >= LESSON_SENTENCES.length){ stopAllSpeech(); return; }
+    activeReadingIndex = idx; renderPassage();
+    speakText(LESSON_SENTENCES[idx], () => { idx++; setTimeout(next, 250); });
+  }
+  next();
+}
+
+/* SEASONS */
+function renderSeasons(){
+  const g = document.getElementById('seasonsGrid');
+  if(!g) return;
+  g.innerHTML = SEASONS.map((s, i) => `
+    <div onclick="speakSeason(${i})" class="season-card" style="background:${s.bg};" data-season="${i}">
+      <div class="relative z-10 w-full">
+        <div class="mx-auto mb-2" style="width:140px;height:110px;">${getSeasonSVG(s.anim)}</div>
+        <div class="text-xs font-bold bg-white/25 backdrop-blur rounded-full px-2 py-0.5 inline-block mb-1">${s.period}</div>
+        <h4 class="text-3xl font-black font-title drop-shadow-md">${s.emoji} ${s.name}</h4>
+        <p class="text-xs font-bold text-white/90 mt-1">${s.subtitle}</p>
+        <p class="text-[11px] font-bold bg-white/25 backdrop-blur rounded-xl px-3 py-2 mt-3">${s.desc}</p>
+        <div class="text-[10px] mt-2 font-bold opacity-90">👆 টাচ করে শোনো</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function getSeasonSVG(type){
+  if(type === 'summer'){
+    return `<svg viewBox="0 0 140 110" class="w-full h-full">
+      <g transform="translate(70,50)">
+        <g class="sun-ray-spin">
+          <line x1="0" y1="-28" x2="0" y2="-38" stroke="#fbbf24" stroke-width="3" stroke-linecap="round"/>
+          <line x1="0" y1="28" x2="0" y2="38" stroke="#fbbf24" stroke-width="3" stroke-linecap="round"/>
+          <line x1="-28" y1="0" x2="-38" y2="0" stroke="#fbbf24" stroke-width="3" stroke-linecap="round"/>
+          <line x1="28" y1="0" x2="38" y2="0" stroke="#fbbf24" stroke-width="3" stroke-linecap="round"/>
+        </g>
+        <circle r="24" fill="#fbbf24"/><circle r="18" fill="#fde047"/>
+      </g>
+      <path d="M0 100 Q30 85 60 100 Q90 85 140 100 L140 110 L0 110 Z" fill="#a16207"/>
+      <g stroke="#78350f" stroke-width="1.5" fill="none"><path d="M30 95 Q28 88 26 82"/><path d="M60 95 Q58 88 56 82"/><path d="M90 95 Q88 88 86 82"/></g>
+    </svg>`;
+  }
+  if(type === 'rainy'){
+    let drops = '';
+    for(let i = 0; i < 12; i++){
+      drops += `<line x1="${20+Math.random()*100}" y1="${30+Math.random()*20}" x2="${17+Math.random()*100}" y2="${50+Math.random()*20}" stroke="#7dd3fc" stroke-width="2" stroke-linecap="round" class="rain-drop" style="animation-delay:${Math.random()*1}s"/>`;
+    }
+    return `<svg viewBox="0 0 140 110" class="w-full h-full">
+      <g fill="#94a3b8" class="cloud-drift"><ellipse cx="40" cy="25" rx="20" ry="11"/><ellipse cx="70" cy="22" rx="24" ry="12"/><ellipse cx="105" cy="25" rx="20" ry="11"/></g>
+      ${drops}
+      <path d="M0 90 Q30 80 60 90 Q90 80 140 90 L140 110 L0 110 Z" fill="#166534"/>
+    </svg>`;
+  }
+  if(type === 'autumn'){
+    return `<svg viewBox="0 0 140 110" class="w-full h-full">
+      <ellipse cx="30" cy="25" rx="20" ry="8" fill="#fff" opacity=".9"/>
+      <ellipse cx="110" cy="30" rx="24" ry="9" fill="#fff" opacity=".85"/>
+      <g stroke="#fff" stroke-width="2" fill="none"><path d="M20 90 Q22 70 25 55"/><path d="M35 90 Q37 72 40 58"/><path d="M50 90 Q52 70 55 55"/><path d="M90 90 Q92 72 95 58"/><path d="M105 90 Q107 70 110 55"/><path d="M120 90 Q122 72 125 58"/></g>
+      <g fill="#fff"><ellipse cx="25" cy="55" rx="6" ry="4"/><ellipse cx="40" cy="58" rx="6" ry="4"/><ellipse cx="55" cy="55" rx="6" ry="4"/><ellipse cx="95" cy="58" rx="6" ry="4"/><ellipse cx="110" cy="55" rx="6" ry="4"/><ellipse cx="125" cy="58" rx="6" ry="4"/></g>
+      <path d="M0 95 Q70 88 140 95 L140 110 L0 110 Z" fill="#15803d"/>
+    </svg>`;
+  }
+  if(type === 'lateautumn'){
+    return `<svg viewBox="0 0 140 110" class="w-full h-full">
+      <path d="M0 75 Q70 68 140 75 L140 110 L0 110 Z" fill="#fbbf24"/>
+      <path d="M0 90 Q70 85 140 90 L140 110 L0 110 Z" fill="#d97706"/>
+      <g stroke="#92400e" stroke-width="1.5" fill="none"><path d="M20 88 L20 60 M20 60 L16 62 M20 60 L24 62 M20 68 L16 70 M20 68 L24 70"/><path d="M50 88 L50 55 M50 55 L45 58 M50 55 L55 58"/><path d="M80 88 L80 58 M80 58 L75 61 M80 58 L85 61"/><path d="M110 88 L110 55 M110 55 L105 58 M110 55 L115 58"/></g>
+      <circle cx="100" cy="25" r="14" fill="#fbbf24" opacity=".7"/>
+    </svg>`;
+  }
+  if(type === 'winter'){
+    let flakes = '';
+    for(let i = 0; i < 15; i++){
+      flakes += `<text x="${Math.random()*130+5}" y="${Math.random()*30+5}" font-size="${8+Math.random()*4}" fill="#fff" class="snow-flake" style="animation-delay:${Math.random()*3}s">❄</text>`;
+    }
+    return `<svg viewBox="0 0 140 110" class="w-full h-full">
+      ${flakes}
+      <ellipse cx="70" cy="45" rx="50" ry="12" fill="#fff" opacity=".35"/>
+      <g stroke="#78350f" stroke-width="2.5" fill="none"><path d="M30 90 L30 55 M30 70 L22 62 M30 70 L38 62"/><path d="M110 90 L110 55 M110 70 L102 62 M110 70 L118 62"/></g>
+      <path d="M0 95 L140 95 L140 110 L0 110 Z" fill="#e2e8f0"/>
+    </svg>`;
+  }
+  if(type === 'spring'){
+    return `<svg viewBox="0 0 140 110" class="w-full h-full">
+      <circle cx="110" cy="25" r="14" fill="#fde047" opacity=".85"/>
+      <g class="bird-fly" transform="translate(35,25)" fill="none" stroke="#0f172a" stroke-width="1.5"><path d="M0 0 Q-4 -3 -8 0 M0 0 Q4 -3 8 0"/></g>
+      <g stroke="#16a34a" stroke-width="2" fill="none"><path d="M30 90 L30 50 M30 65 L22 55 M30 65 L38 55"/><path d="M70 90 L70 45 M70 62 L62 52 M70 62 L78 52"/><path d="M110 90 L110 55 M110 68 L102 58 M110 68 L118 58"/></g>
+      <g fill="#ec4899"><circle cx="22" cy="55" r="6"/><circle cx="38" cy="55" r="6"/><circle cx="30" cy="48" r="6"/></g>
+      <g fill="#f97316"><circle cx="62" cy="52" r="6"/><circle cx="78" cy="52" r="6"/><circle cx="70" cy="45" r="6"/></g>
+      <g fill="#a855f7"><circle cx="102" cy="58" r="5"/><circle cx="118" cy="58" r="5"/><circle cx="110" cy="52" r="5"/></g>
+      <path d="M0 95 L140 95 L140 110 L0 110 Z" fill="#16a34a"/>
+    </svg>`;
+  }
+  return '';
+}
+
+function speakSeason(i){
+  const s = SEASONS[i];
+  playSound('chime');
+  playSeasonAmbient(i);
+  document.querySelectorAll('.season-card').forEach(el => el.style.transform = '');
+  const card = document.querySelector(`.season-card[data-season="${i}"]`);
+  if(card) card.style.transform = 'scale(1.04)';
+  const status = document.getElementById('seasonPlayStatus');
+  if(status) status.innerHTML = `🔊 <strong>${s.name}</strong> এর বর্ণনা চলছে...`;
+  speakText(`${s.name}। ${s.subtitle}। ${s.desc}`, () => {
+    if(card) card.style.transform = '';
+    if(status) status.innerHTML = '✅ বর্ণনা শেষ — অন্য ঋতুতে টাচ করো';
+    stopAllAmbientSounds();
+  });
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SEASON WALK GAME
+   ═══════════════════════════════════════════════════════════════ */
+const SEASON_LENGTH = 700;
+let swTotalDistance = 0;
+
+function initSeasonWalk(){
+  const canvas = document.getElementById('seasonWalkCanvas');
+  if(!canvas) return;
+  const rect = canvas.getBoundingClientRect();
+  canvas.width = rect.width;
+  canvas.height = rect.height;
+
+  swState = {
+    child: { worldX: 0, screenX: 130, walkPhase: 0, stepTimer: 0 },
+    lastSeasonIdx: -1,
+    weather: [],
+    clouds: [],
+    trees: [],
+    bushes: [],
+    flowers: [],
+    birds: [],
+    walkingPaused: false
+  };
+  swTotalDistance = SEASON_LENGTH * SEASONS.length;
+
+  for(let i = 0; i < 130; i++){
+    swState.trees.push({ worldX: i * 180 + Math.random() * 100, type: Math.random() < 0.6 ? 'tree' : 'bush', size: 0.65 + Math.random() * 0.55 });
+  }
+  for(let i = 0; i < 40; i++){
+    swState.clouds.push({ worldX: i * 300 + Math.random() * 200, y: 30 + Math.random() * 60, size: 0.6 + Math.random() * 0.7 });
+  }
+  for(let i = 0; i < 60; i++){
+    swState.flowers.push({ worldX: i * 150 + Math.random() * 80, offset: Math.random() * 30 });
+  }
+  for(let i = 0; i < 6; i++){
+    swState.birds.push({ worldX: i * 400 + Math.random() * 200, y: 60 + Math.random() * 50, phase: Math.random() * Math.PI * 2 });
+  }
+
+  const sn = document.getElementById('swSeasonName');
+  if(sn) sn.innerText = SEASONS[0].name;
+  const wo = document.getElementById('swWinOverlay');
+  if(wo){ wo.classList.add('hidden'); wo.classList.remove('flex'); }
+  const inp = document.getElementById('childNameInputGame');
+  if(inp) inp.value = childName;
+
+  const swStatus = document.getElementById('swVoiceStatus');
+  if(swStatus){ swStatus.innerText = 'প্রস্তুত'; swStatus.className = 'font-black text-amber-200 bg-white/10 px-3 py-1 rounded-full'; }
+
+  swState.walkingPaused = true;
+  showSeasonBanner(0, true);
+
+  if(swStatus){ swStatus.innerText = 'পরিচিতি চলছে...'; swStatus.className = 'font-black text-emerald-100 bg-emerald-500/30 px-3 py-1 rounded-full'; }
+
+  const introText = `${getNamePrefix()}চলো ঋতু ভ্রমণে যাই! তুমি হাঁটবে, চারপাশের পরিবেশ বদলে যাবে।`;
+  speakText(introText, () => {
+    if(!swState) return;
+    if(swStatus){ swStatus.innerText = 'গ্রীষ্ম এর বর্ণনা'; swStatus.className = 'font-black text-emerald-100 bg-emerald-500/30 px-3 py-1 rounded-full'; }
+    playSeasonAmbient(0);
+    const firstSeason = SEASONS[0];
+    const firstVoice = `${firstSeason.name}কাল। ${firstSeason.sound}`;
+    speakText(firstVoice, () => {
+      if(!swState) return;
+      swState.lastSeasonIdx = 0;
+      swState.walkingPaused = false;
+      hideSeasonBanner();
+      if(swStatus){ swStatus.innerText = 'প্রস্তুত'; swStatus.className = 'font-black text-amber-200 bg-white/10 px-3 py-1 rounded-full'; }
+      stopAllAmbientSounds();
+    });
+  });
+
+  swLastTime = performance.now();
+  startSeasonWalkLoop();
+}
+
+function startSeasonWalkLoop(){
+  if(swAnimId) cancelAnimationFrame(swAnimId);
+  function loop(now){
+    const dt = Math.min((now - swLastTime) / 1000, 0.05);
+    swLastTime = now;
+    updateSeasonWalk(dt);
+    drawSeasonWalk();
+    swAnimId = requestAnimationFrame(loop);
+  }
+  swAnimId = requestAnimationFrame(loop);
+}
+
+function stopSeasonWalk(){
+  if(swAnimId){ cancelAnimationFrame(swAnimId); swAnimId = null; }
+  stopAllAmbientSounds();
+}
+
+function updateSeasonWalk(dt){
+  if(!swState) return;
+  const c = swState.child;
+
+  swState.weather.forEach(w => { w.y += w.vy; w.x += w.vx; if(w.y > 600 || w.x < -50 || w.x > 2000) w.dead = true; });
+  swState.weather = swState.weather.filter(w => !w.dead);
+
+  if(swState.walkingPaused) return;
+
+  c.worldX += 1.6 * dt * 60;
+  c.walkPhase += dt * 12;
+  c.stepTimer += dt;
+  if(c.stepTimer > 0.4){ c.stepTimer = 0; playSound('step'); }
+
+  const seasonProgress = c.worldX / SEASON_LENGTH;
+  const currentSeasonIdx = Math.min(SEASONS.length - 1, Math.floor(seasonProgress));
+
+  const curEnv = SEASON_ENV[currentSeasonIdx];
+  if(curEnv.weather !== 'none' && Math.random() < 0.35){
+    spawnWeather(curEnv.weather, 950);
+  }
+
+  const pct = Math.min(100, (c.worldX / swTotalDistance) * 100);
+  const pb = document.getElementById('swProgressBar');
+  if(pb) pb.style.width = pct + '%';
+  const pl = document.getElementById('swProgressLabel');
+  if(pl) pl.innerText = `ঋতু ${toBn(currentSeasonIdx + 1)}/${toBn(SEASONS.length)}: ${SEASONS[currentSeasonIdx].name}`;
+
+  if(currentSeasonIdx > swState.lastSeasonIdx){
+    swState.lastSeasonIdx = currentSeasonIdx;
+    swState.walkingPaused = true;
+    showSeasonBanner(currentSeasonIdx, true);
+    playSound('seasonChange');
+    playSeasonAmbient(currentSeasonIdx);
+
+    const s = SEASONS[currentSeasonIdx];
+    const swStatus = document.getElementById('swVoiceStatus');
+    if(swStatus){ swStatus.innerText = `${s.name} এর বর্ণনা`; swStatus.className = 'font-black text-emerald-100 bg-emerald-500/30 px-3 py-1 rounded-full'; }
+
+    if(questionVoiceEnabled){
+      speakText(`${s.name}কাল। ${s.sound}`, () => {
+        if(!swState) return;
+        swState.walkingPaused = false;
+        hideSeasonBanner();
+        const st = document.getElementById('swVoiceStatus');
+        if(st){ st.innerText = 'প্রস্তুত'; st.className = 'font-black text-amber-200 bg-white/10 px-3 py-1 rounded-full'; }
+        stopAllAmbientSounds();
+      });
+    } else {
+      setTimeout(() => {
+        if(!swState || !swState.walkingPaused) return;
+        swState.walkingPaused = false;
+        hideSeasonBanner();
+        stopAllAmbientSounds();
+      }, 3500);
+    }
+  }
+
+  if(c.worldX >= swTotalDistance){
+    stopSeasonWalk();
+    showSeasonWin();
+  }
+}
+
+function spawnWeather(type, count){
+  if(type === 'heavyRain'){
+    for(let i = 0; i < 3; i++){
+      swState.weather.push({ type:'rain', x: Math.random() * 1000, y: -20, vy: 12 + Math.random() * 6, vx: -1, len: 12 + Math.random() * 8 });
+    }
+  } else if(type === 'snow'){
+    if(Math.random() < 0.5) swState.weather.push({ type:'snow', x: Math.random() * 1000, y: -20, vy: 1.5 + Math.random() * 1.2, vx: (Math.random() - 0.5) * 1, size: 2 + Math.random() * 3 });
+  } else if(type === 'kash' || type === 'petals' || type === 'goldenLeaves'){
+    if(Math.random() < 0.3) swState.weather.push({ type, x: Math.random() * 1000, y: -20, vy: 1 + Math.random() * 1.5, vx: (Math.random() - 0.5) * 2, size: 5 + Math.random() * 6, rot: Math.random() * Math.PI * 2, vr: (Math.random() - 0.5) * 0.15 });
+  }
+}
+
+function showSeasonBanner(idx, keepVisible = false){
+  const s = SEASONS[idx];
+  const banner = document.getElementById('swSeasonBanner');
+  if(!banner) return;
+  document.getElementById('swBannerEmoji').innerText = s.emoji;
+  document.getElementById('swBannerName').innerText = s.name;
+  document.getElementById('swBannerSub').innerText = s.subtitle;
+  const sn = document.getElementById('swSeasonName');
+  if(sn) sn.innerText = s.name;
+
+  banner.classList.remove('hidden');
+  banner.style.opacity = '0';
+  banner.style.transform = 'translateX(-50%) translateY(-30px) scale(.5)';
+  requestAnimationFrame(() => {
+    banner.style.transition = 'all .5s cubic-bezier(.34,1.56,.64,1)';
+    banner.style.opacity = '1';
+    banner.style.transform = 'translateX(-50%) translateY(0) scale(1)';
+  });
+
+  if(!keepVisible){
+    setTimeout(() => hideSeasonBanner(), 3200);
+  }
+}
+
+function hideSeasonBanner(){
+  const banner = document.getElementById('swSeasonBanner');
+  if(!banner) return;
+  banner.style.transition = 'all .5s ease-out';
+  banner.style.opacity = '0';
+  banner.style.transform = 'translateX(-50%) translateY(-30px) scale(.5)';
+  setTimeout(() => banner.classList.add('hidden'), 600);
+}
+
+function showSeasonWin(){
+  const ov = document.getElementById('swWinOverlay');
+  if(!ov) return;
+  ov.classList.remove('hidden');
+  ov.classList.add('flex');
+  document.getElementById('swWinMsg').innerText = `${getNamePrefix()}তুমি ছয় ঋতুর পুরো ভ্রমণ শেষ করেছ — গ্রীষ্ম, বর্ষা, শরৎ, হেমন্ত, শীত, বসন্ত!`;
+  playSound('chime');
+  speakText(`${getNamePrefix()}সাবাস! তুমি ছয় ঋতুর ভ্রমণ শেষ করেছ! বাংলাদেশ ছয় ঋতুর দেশ!`);
+}
+
+function restartSeasonWalk(){
+  playSound('click');
+  stopAllSpeech();
+  setTimeout(() => initSeasonWalk(), 300);
+}
+
+/* INTERPOLATION */
+function lerp(a, b, t){ return a + (b - a) * t; }
+function lerpRGB(c1, c2, t){ return [Math.round(lerp(c1[0], c2[0], t)), Math.round(lerp(c1[1], c2[1], t)), Math.round(lerp(c1[2], c2[2], t))]; }
+function rgbStr(c){ return `rgb(${c[0]},${c[1]},${c[2]})`; }
+
+function getSeasonEnvForX(worldX){
+  const total = worldX / SEASON_LENGTH;
+  const baseIdx = Math.min(SEASONS.length - 1, Math.floor(total));
+  const localT = total - baseIdx;
+  const nextIdx = Math.min(SEASONS.length - 1, baseIdx + 1);
+  let blend = 0;
+  if(localT > 0.85 && baseIdx < SEASONS.length - 1){
+    blend = (localT - 0.85) / 0.15;
+    blend = blend * blend * (3 - 2 * blend);
+  }
+  return { baseIdx, nextIdx, blend };
+}
+
+function getBlendedEnv(worldX){
+  const { baseIdx, nextIdx, blend } = getSeasonEnvForX(worldX);
+  const a = SEASON_ENV[baseIdx];
+  const b = SEASON_ENV[nextIdx];
+  return {
+    skyTop: lerpRGB(a.skyTop, b.skyTop, blend),
+    skyBot: lerpRGB(a.skyBot, b.skyBot, blend),
+    sun: lerpRGB(a.sun, b.sun, blend),
+    sunSize: lerp(a.sunSize, b.sunSize, blend),
+    hillFar: lerpRGB(a.hillFar, b.hillFar, blend),
+    hillNear: lerpRGB(a.hillNear, b.hillNear, blend),
+    ground: lerpRGB(a.ground, b.ground, blend),
+    grass: lerpRGB(a.grass, b.grass, blend),
+    tree: lerpRGB(a.tree, b.tree, blend),
+    treeDark: lerpRGB(a.treeDark, b.treeDark, blend),
+    weather: blend > 0.5 ? b.weather : a.weather,
+    extra: blend > 0.5 ? b.extra : a.extra
+  };
+}
+
+/* DRAW SCENE */
+function drawSeasonWalk(){
+  const canvas = document.getElementById('seasonWalkCanvas');
+  if(!canvas || !swState) return;
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  const child = swState.child;
+  const env = getBlendedEnv(child.worldX);
+
+  ctx.clearRect(0, 0, W, H);
+
+  const skyGrad = ctx.createLinearGradient(0, 0, 0, H * 0.72);
+  skyGrad.addColorStop(0, rgbStr(env.skyTop));
+  skyGrad.addColorStop(1, rgbStr(env.skyBot));
+  ctx.fillStyle = skyGrad;
+  ctx.fillRect(0, 0, W, H * 0.72);
+
+  const sunX = W * 0.82;
+  const sunY = H * 0.14;
+  ctx.save();
+  ctx.translate(sunX, sunY);
+  const glow = ctx.createRadialGradient(0, 0, 0, 0, 0, env.sunSize * 3);
+  glow.addColorStop(0, `rgba(${env.sun[0]},${env.sun[1]},${env.sun[2]}, .6)`);
+  glow.addColorStop(1, `rgba(${env.sun[0]},${env.sun[1]},${env.sun[2]}, 0)`);
+  ctx.fillStyle = glow;
+  ctx.beginPath();
+  ctx.arc(0, 0, env.sunSize * 3, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.rotate(performance.now() * 0.0004);
+  ctx.strokeStyle = `rgba(${env.sun[0]},${env.sun[1]},${env.sun[2]}, .6)`;
+  ctx.lineWidth = 2.5;
+  ctx.lineCap = 'round';
+  for(let i = 0; i < 10; i++){
+    const a = (i * Math.PI * 2 / 10);
+    ctx.beginPath();
+    ctx.moveTo(Math.cos(a) * (env.sunSize + 6), Math.sin(a) * (env.sunSize + 6));
+    ctx.lineTo(Math.cos(a) * (env.sunSize + 16), Math.sin(a) * (env.sunSize + 16));
+    ctx.stroke();
+  }
+  ctx.restore();
+
+  ctx.fillStyle = rgbStr(env.sun);
+  ctx.beginPath();
+  ctx.arc(sunX, sunY, env.sunSize, 0, Math.PI * 2);
+  ctx.fill();
+
+  swState.clouds.forEach(c => {
+    const cScreenX = ((c.worldX - child.worldX * 0.15) % (W + 300) + W + 300) % (W + 300) - 150;
+    drawCloud(ctx, cScreenX, c.y, c.size);
+  });
+
+  const hillBaseY = H * 0.55;
+  ctx.fillStyle = rgbStr(env.hillFar);
+  ctx.beginPath();
+  ctx.moveTo(0, hillBaseY + 40);
+  for(let x = 0; x <= W; x += 20){
+    const yy = hillBaseY - Math.abs(Math.sin((x + child.worldX * 0.15) * 0.008)) * 60 - 10;
+    ctx.lineTo(x, yy);
+  }
+  ctx.lineTo(W, H * 0.72);
+  ctx.lineTo(0, H * 0.72);
+  ctx.closePath();
+  ctx.fill();
+
+  ctx.fillStyle = rgbStr(env.hillNear);
+  ctx.beginPath();
+  ctx.moveTo(0, H * 0.65);
+  for(let x = 0; x <= W; x += 20){
+    const yy = H * 0.65 - Math.abs(Math.cos((x + child.worldX * 0.3) * 0.012)) * 50;
+    ctx.lineTo(x, yy);
+  }
+  ctx.lineTo(W, H * 0.75);
+  ctx.lineTo(0, H * 0.75);
+  ctx.closePath();
+  ctx.fill();
+
+  swState.birds.forEach(b => {
+    const bx = ((b.worldX - child.worldX * 0.4) % (W + 200) + W + 200) % (W + 200) - 100;
+    drawBird(ctx, bx, b.y + Math.sin(performance.now() * 0.003 + b.phase) * 6);
+  });
+
+  swState.trees.forEach(t => {
+    const tx = child.screenX + (t.worldX - child.worldX) * 0.85;
+    if(tx < -80 || tx > W + 80) return;
+    if(t.type === 'tree') drawTree(ctx, tx, H * 0.78, t.size, env);
+    else drawBush(ctx, tx, H * 0.79, t.size * 0.85, env);
+  });
+
+  const groundY = H * 0.78;
+  const groundGrad = ctx.createLinearGradient(0, groundY, 0, H);
+  groundGrad.addColorStop(0, rgbStr(env.grass));
+  groundGrad.addColorStop(1, rgbStr(env.ground));
+  ctx.fillStyle = groundGrad;
+  ctx.fillRect(0, groundY, W, H - groundY);
+
+  ctx.fillStyle = 'rgba(120, 113, 108, 0.45)';
+  ctx.beginPath();
+  ctx.moveTo(0, H * 0.92);
+  for(let x = 0; x <= W; x += 15){
+    const yy = H * 0.92 - Math.sin((x + child.worldX * 0.9) * 0.008) * 8;
+    ctx.lineTo(x, yy);
+  }
+  for(let x = W; x >= 0; x -= 15){
+    const yy = H * 0.92 - Math.sin((x + child.worldX * 0.9) * 0.008) * 8 + 22;
+    ctx.lineTo(x, yy);
+  }
+  ctx.closePath();
+  ctx.fill();
+
+  if(env.extra === 'paddy') drawPaddy(ctx, W, H, child);
+  else if(env.extra === 'kashFlower') drawKash(ctx, W, H, child);
+  else if(env.extra === 'flowers') drawFlowerPatch(ctx, W, H, child);
+  else if(env.extra === 'fog') drawFog(ctx, W, H);
+  else if(env.extra === 'heatWave') drawHeatWave(ctx, W, H);
+
+  swState.flowers.forEach(f => {
+    const fx = child.screenX + (f.worldX - child.worldX) * 0.92;
+    if(fx < -20 || fx > W + 20) return;
+    drawSmallFlower(ctx, fx, H * 0.82 + f.offset * 0.2, env);
+  });
+
+  swState.weather.forEach(w => {
+    if(w.type === 'rain'){
+      ctx.strokeStyle = 'rgba(186, 230, 253, .85)';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(w.x, w.y);
+      ctx.lineTo(w.x - 1.5, w.y + w.len);
+      ctx.stroke();
+    } else if(w.type === 'snow'){
+      ctx.fillStyle = '#fff';
+      ctx.beginPath(); ctx.arc(w.x, w.y, w.size, 0, Math.PI * 2); ctx.fill();
+    } else if(w.type === 'kash'){
+      ctx.fillStyle = '#fff';
+      ctx.save();
+      ctx.translate(w.x, w.y);
+      ctx.rotate(w.rot || 0);
+      ctx.beginPath();
+      ctx.ellipse(0, 0, w.size, w.size * 0.4, 0, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+      w.rot += w.vr || 0;
+    } else if(w.type === 'goldenLeaves'){
+      ctx.fillStyle = '#fbbf24';
+      ctx.save();
+      ctx.translate(w.x, w.y);
+      ctx.rotate(w.rot || 0);
+      ctx.beginPath();
+      ctx.ellipse(0, 0, w.size, w.size * 0.5, 0, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+      w.rot += w.vr || 0;
+    } else if(w.type === 'petals'){
+      ctx.fillStyle = '#f9a8d4';
+      ctx.save();
+      ctx.translate(w.x, w.y);
+      ctx.rotate(w.rot || 0);
+      ctx.beginPath();
+      ctx.ellipse(0, 0, w.size * 0.6, w.size * 0.35, 0, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+      w.rot += w.vr || 0;
+    }
+  });
+
+  drawWalkingChild(ctx, child.screenX, groundY + 8, child);
+
+  const vig = ctx.createRadialGradient(W/2, H/2, H*0.3, W/2, H/2, H*0.95);
+  vig.addColorStop(0, 'rgba(0,0,0,0)');
+  vig.addColorStop(1, 'rgba(0,0,0,0.18)');
+  ctx.fillStyle = vig;
+  ctx.fillRect(0, 0, W, H);
+}
+
+function drawCloud(ctx, x, y, s){ ctx.save(); ctx.translate(x, y); ctx.scale(s, s); ctx.fillStyle = 'rgba(255,255,255,.9)'; ctx.beginPath(); ctx.arc(-20,0,18,0,Math.PI*2); ctx.arc(0,-8,22,0,Math.PI*2); ctx.arc(20,0,18,0,Math.PI*2); ctx.arc(0,8,20,0,Math.PI*2); ctx.fill(); ctx.restore(); }
+function drawBird(ctx, x, y){ ctx.save(); ctx.translate(x, y); ctx.strokeStyle = 'rgba(15,23,42,.7)'; ctx.lineWidth = 1.8; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(-8,0); ctx.quadraticCurveTo(-4,-4,0,0); ctx.quadraticCurveTo(4,-4,8,0); ctx.stroke(); ctx.restore(); }
+function drawTree(ctx, x, y, s, env){ ctx.save(); ctx.translate(x, y); ctx.scale(s, s); ctx.fillStyle = rgbStr(env.treeDark); ctx.fillRect(-6, -30, 12, 45); ctx.strokeStyle = 'rgba(0,0,0,.3)'; ctx.lineWidth = 1.5; ctx.strokeRect(-6, -30, 12, 45); ctx.fillStyle = rgbStr(env.tree); ctx.beginPath(); ctx.arc(-14,-42,22,0,Math.PI*2); ctx.fill(); ctx.beginPath(); ctx.arc(0,-58,26,0,Math.PI*2); ctx.fill(); ctx.beginPath(); ctx.arc(14,-42,22,0,Math.PI*2); ctx.fill(); ctx.restore(); }
+function drawBush(ctx, x, y, s, env){ ctx.save(); ctx.translate(x, y); ctx.scale(s, s); ctx.fillStyle = rgbStr(env.tree); ctx.beginPath(); ctx.arc(-14,-6,14,0,Math.PI*2); ctx.arc(0,-12,16,0,Math.PI*2); ctx.arc(14,-6,14,0,Math.PI*2); ctx.fill(); ctx.restore(); }
+function drawSmallFlower(ctx, x, y, env){ ctx.save(); ctx.translate(x, y); ctx.strokeStyle = 'rgba(22,163,74,.7)'; ctx.lineWidth = 1.2; ctx.beginPath(); ctx.moveTo(0,0); ctx.lineTo(0,-8); ctx.stroke(); const colors = ['#ec4899','#f97316','#a855f7','#fbbf24','#ef4444']; const col = colors[Math.abs(Math.floor(x)) % colors.length]; ctx.fillStyle = col; ctx.beginPath(); ctx.arc(0,-10,3,0,Math.PI*2); ctx.fill(); ctx.fillStyle = '#fde047'; ctx.beginPath(); ctx.arc(0,-10,1.5,0,Math.PI*2); ctx.fill(); ctx.restore(); }
+function drawPaddy(ctx, W, H, child){ const baseY = H * 0.82; ctx.save(); for(let x = 0; x < W; x += 8){ const worldX = x + child.worldX * 0.92; const sway = Math.sin(worldX * 0.02 + performance.now() * 0.002) * 4; ctx.strokeStyle = 'rgba(217, 119, 6, .8)'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x, baseY); ctx.quadraticCurveTo(x + sway, baseY - 8, x + sway * 1.4, baseY - 16); ctx.stroke(); ctx.fillStyle = '#fbbf24'; ctx.beginPath(); ctx.ellipse(x + sway * 1.4, baseY - 18, 2, 4, 0, 0, Math.PI*2); ctx.fill(); } ctx.restore(); }
+function drawKash(ctx, W, H, child){ const baseY = H * 0.8; ctx.save(); for(let x = 0; x < W; x += 55){ const worldX = x + child.worldX * 0.85; const sway = Math.sin(worldX * 0.015 + performance.now() * 0.001) * 5; ctx.strokeStyle = 'rgba(148, 163, 184, .7)'; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(x, baseY); ctx.quadraticCurveTo(x + sway * 0.5, baseY - 25, x + sway, baseY - 45); ctx.stroke(); ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.ellipse(x + sway, baseY - 48, 5, 10, sway * 0.02, 0, Math.PI*2); ctx.fill(); } ctx.restore(); }
+function drawFlowerPatch(ctx, W, H, child){ const baseY = H * 0.84; const colors = ['#ec4899','#f97316','#a855f7','#fbbf24','#ef4444','#06b6d4']; for(let x = 0; x < W; x += 30){ const worldX = x + child.worldX * 0.9; const sway = Math.sin(worldX * 0.02 + performance.now() * 0.003) * 2; ctx.strokeStyle = 'rgba(22,163,74,.8)'; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(x, baseY); ctx.quadraticCurveTo(x + sway, baseY - 8, x + sway, baseY - 14); ctx.stroke(); const ci = Math.abs(Math.floor(worldX / 30)) % colors.length; ctx.fillStyle = colors[ci]; for(let k = 0; k < 5; k++){ const ang = (k * Math.PI * 2 / 5); ctx.beginPath(); ctx.arc(x + sway + Math.cos(ang) * 2.5, baseY - 14 + Math.sin(ang) * 2.5, 2, 0, Math.PI * 2); ctx.fill(); } ctx.fillStyle = '#fde047'; ctx.beginPath(); ctx.arc(x + sway, baseY - 14, 1.5, 0, Math.PI * 2); ctx.fill(); } }
+function drawFog(ctx, W, H){ const t = performance.now() * 0.0005; for(let i = 0; i < 5; i++){ const x = ((i * 200 + t * 400) % (W + 300)) - 100; const y = H * 0.55 + i * 25; ctx.fillStyle = `rgba(226, 232, 240, ${0.18 - i * 0.02})`; ctx.beginPath(); ctx.ellipse(x, y, 200, 25, 0, 0, Math.PI * 2); ctx.fill(); } }
+function drawHeatWave(ctx, W, H){ const t = performance.now() * 0.001; for(let i = 0; i < 4; i++){ const y = H * 0.5 + i * 25; ctx.strokeStyle = `rgba(251, 191, 36, ${0.18 - i * 0.03})`; ctx.lineWidth = 2; ctx.beginPath(); for(let x = 0; x <= W; x += 15){ const yy = y + Math.sin(x * 0.05 + t + i) * 3; if(x === 0) ctx.moveTo(x, yy); else ctx.lineTo(x, yy); } ctx.stroke(); } }
+
+function drawWalkingChild(ctx, x, y, child){
+  ctx.save();
+  ctx.translate(x, y);
+  const walkPhase = child.walkPhase;
+  const legSwing = Math.sin(walkPhase) * 10;
+  const armSwing = Math.sin(walkPhase) * 8;
+  const bob = Math.abs(Math.sin(walkPhase)) * 3;
+  ctx.translate(0, -bob);
+
+  ctx.fillStyle = 'rgba(0,0,0,.25)';
+  ctx.beginPath(); ctx.ellipse(0, 0, 24, 6, 0, 0, Math.PI * 2); ctx.fill();
+
+  ctx.fillStyle = '#ec4899';
+  if(ctx.roundRect) { ctx.beginPath(); ctx.roundRect(-22, -62, 24, 42, 6); ctx.fill(); } else { ctx.fillRect(-22, -62, 24, 42); }
+  ctx.strokeStyle = '#9f1239'; ctx.lineWidth = 1.5; ctx.stroke();
+  ctx.fillStyle = '#f472b6';
+  if(ctx.roundRect) { ctx.beginPath(); ctx.roundRect(-19, -55, 18, 12, 3); ctx.fill(); } else { ctx.fillRect(-19, -55, 18, 12); }
+  ctx.strokeStyle = '#9f1239'; ctx.lineWidth = 2;
+  ctx.beginPath(); ctx.moveTo(-10, -58); ctx.lineTo(0, -38); ctx.stroke();
+
+  ctx.strokeStyle = '#78350f'; ctx.lineWidth = 5; ctx.lineCap = 'round';
+  ctx.beginPath(); ctx.moveTo(-6, -20); ctx.lineTo(-6 + legSwing, -2); ctx.moveTo(6, -20); ctx.lineTo(6 - legSwing, -2); ctx.stroke();
+
+  ctx.fillStyle = '#0f172a';
+  ctx.beginPath(); ctx.ellipse(-6 + legSwing, -1, 8, 4, 0, 0, Math.PI * 2); ctx.fill();
+  ctx.beginPath(); ctx.ellipse(6 - legSwing, -1, 8, 4, 0, 0, Math.PI * 2); ctx.fill();
+
+  const frockGrad = ctx.createLinearGradient(-12, -58, 12, -20);
+  frockGrad.addColorStop(0, '#38bdf8'); frockGrad.addColorStop(1, '#0284c7');
+  ctx.fillStyle = frockGrad;
+  ctx.beginPath(); ctx.moveTo(-11, -58); ctx.lineTo(11, -58); ctx.lineTo(18, -18); ctx.lineTo(-18, -18); ctx.closePath(); ctx.fill();
+  ctx.strokeStyle = '#075985'; ctx.lineWidth = 1.5; ctx.stroke();
+
+  ctx.strokeStyle = 'rgba(255,255,255,.5)'; ctx.lineWidth = 1.5;
+  ctx.beginPath(); ctx.moveTo(-10, -50); ctx.lineTo(10, -50); ctx.moveTo(-12, -40); ctx.lineTo(12, -40); ctx.stroke();
+
+  ctx.strokeStyle = '#fcd34d'; ctx.lineWidth = 5; ctx.lineCap = 'round';
+  ctx.beginPath(); ctx.moveTo(-10, -54); ctx.lineTo(-16 - armSwing, -34); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(10, -54); ctx.lineTo(16 + armSwing, -34); ctx.stroke();
+  ctx.fillStyle = '#fcd34d';
+  ctx.beginPath(); ctx.arc(-16 - armSwing, -34, 3.5, 0, Math.PI * 2); ctx.fill();
+  ctx.beginPath(); ctx.arc(16 + armSwing, -34, 3.5, 0, Math.PI * 2); ctx.fill();
+
+  ctx.fillStyle = '#fcd34d';
+  ctx.beginPath(); ctx.arc(0, -72, 13, 0, Math.PI * 2); ctx.fill();
+  ctx.strokeStyle = '#92400e'; ctx.lineWidth = 1.5; ctx.stroke();
+
+  ctx.fillStyle = '#0f172a';
+  ctx.beginPath(); ctx.arc(0, -77, 14, Math.PI, 0); ctx.fill();
+  ctx.beginPath(); ctx.ellipse(-13, -72, 6, 9, -0.3, 0, Math.PI * 2); ctx.fill();
+  ctx.beginPath(); ctx.arc(-17, -68, 6, 0, Math.PI * 2); ctx.fill();
+  ctx.beginPath(); ctx.arc(-20, -58, 5, 0, Math.PI * 2); ctx.fill();
+
+  ctx.fillStyle = '#ec4899';
+  ctx.beginPath(); ctx.arc(-15, -74, 3, 0, Math.PI * 2); ctx.fill();
+
+  ctx.fillStyle = '#0f172a';
+  ctx.beginPath(); ctx.arc(-4, -72, 1.8, 0, Math.PI * 2); ctx.fill();
+  ctx.beginPath(); ctx.arc(4, -72, 1.8, 0, Math.PI * 2); ctx.fill();
+  ctx.fillStyle = '#fff';
+  ctx.beginPath(); ctx.arc(-3.5, -72.5, 0.6, 0, Math.PI * 2); ctx.fill();
+  ctx.beginPath(); ctx.arc(4.5, -72.5, 0.6, 0, Math.PI * 2); ctx.fill();
+
+  ctx.fillStyle = 'rgba(244, 114, 182, .5)';
+  ctx.beginPath(); ctx.arc(-7, -68, 2.5, 0, Math.PI * 2); ctx.fill();
+  ctx.beginPath(); ctx.arc(7, -68, 2.5, 0, Math.PI * 2); ctx.fill();
+
+  ctx.strokeStyle = '#0f172a'; ctx.lineWidth = 1.3;
+  ctx.beginPath(); ctx.arc(0, -68, 4, 0.15 * Math.PI, 0.85 * Math.PI); ctx.stroke();
+
+  ctx.restore();
+}
+
+/* WEATHER */
+function renderWeather(){
+  const g = document.getElementById('weatherGrid');
+  if(!g) return;
+  g.innerHTML = WEATHER_TYPES.map((w, i) => `
+    <div onclick="speakWeather(${i})" class="weather-card" style="background:${w.bg};">
+      <div class="relative z-10">
+        <div class="text-5xl mb-3">${w.emoji}</div>
+        <h4 class="text-2xl font-black font-title drop-shadow-md">${w.name}</h4>
+        <p class="text-xs font-bold bg-white/25 backdrop-blur rounded-full px-3 py-1.5 mt-2">${w.desc}</p>
+        <div class="text-[10px] mt-3 font-bold opacity-90">👆 টাচ করে শোনো</div>
+      </div>
+    </div>
+  `).join('');
+}
+function speakWeather(i){ playSound('chime'); speakText(WEATHER_TYPES[i].sound); }
+
+/* MATCH GAME */
+function renderMatchGame(){
+  const ml = document.getElementById('matchLeft');
+  const mr = document.getElementById('matchRight');
+  if(!ml || !mr) return;
+  const rights = [...MATCH_PAIRS].sort(() => Math.random() - 0.5);
+  matchState.pairs = MATCH_PAIRS;
+  matchState.selectedLeft = null;
+  matchState.selectedRight = null;
+  matchState.matched = 0;
+  const ms = document.getElementById('matchScore');
+  if(ms) ms.innerText = '০/' + toBn(MATCH_PAIRS.length);
+
+  ml.innerHTML = MATCH_PAIRS.map((p, i) => `
+    <div onclick="selectMatchLeft(${i})" data-left="${i}" class="match-item bg-sky-100 text-sky-900 border-sky-400 hover:bg-sky-200">
+      <span>${p.leftEmoji}</span><span class="ml-2">${p.left}</span>
+    </div>
+  `).join('');
+
+  mr.innerHTML = rights.map(p => `
+    <div onclick="selectMatchRight('${p.right}')" data-right="${p.right}" class="match-item bg-pink-100 text-pink-900 border-pink-400 hover:bg-pink-200">
+      <span>${p.rightEmoji}</span><span class="ml-2">${p.right}</span>
+    </div>
+  `).join('');
+}
+function selectMatchLeft(idx){
+  playSound('click');
+  const el = document.querySelector(`[data-left="${idx}"]`);
+  if(!el || el.classList.contains('matched')) return;
+  document.querySelectorAll('[data-left]').forEach(e => e.classList.remove('selected'));
+  el.classList.add('selected');
+  matchState.selectedLeft = idx;
+  speakText(MATCH_PAIRS[idx].left);
+  checkMatch();
+}
+function selectMatchRight(right){
+  playSound('click');
+  const el = document.querySelector(`[data-right="${right}"]`);
+  if(!el || el.classList.contains('matched')) return;
+  document.querySelectorAll('[data-right]').forEach(e => e.classList.remove('selected'));
+  el.classList.add('selected');
+  matchState.selectedRight = right;
+  speakText(right);
+  checkMatch();
+}
+function checkMatch(){
+  if(matchState.selectedLeft === null || matchState.selectedRight === null) return;
+  const pair = MATCH_PAIRS[matchState.selectedLeft];
+  const elL = document.querySelector(`[data-left="${matchState.selectedLeft}"]`);
+  const elR = document.querySelector(`[data-right="${matchState.selectedRight}"]`);
+
+  if(pair.right === matchState.selectedRight){
+    playSound('correct');
+    if(elL){ elL.classList.add('matched'); elL.classList.remove('selected'); }
+    if(elR){ elR.classList.add('matched'); elR.classList.remove('selected'); }
+    matchState.matched++;
+    const ms = document.getElementById('matchScore');
+    if(ms) ms.innerText = `${toBn(matchState.matched)}/${toBn(MATCH_PAIRS.length)}`;
+    const praise = getRandomItem(PRAISES);
+    const fb = document.getElementById('matchFeedback');
+    if(fb){
+      fb.classList.remove('hidden');
+      fb.className = 'text-center font-black p-3 mt-4 rounded-2xl bg-emerald-100 text-emerald-800 animate-praise';
+      fb.innerText = `✅ সঠিক! ${pair.left} ↔ ${pair.right} — ${praise}`;
+    }
+    speakText(`${pair.left} মিলে ${pair.right}। ${praise}`);
+    setTimeout(() => { if(fb) fb.classList.add('hidden'); }, 2500);
+    matchState.selectedLeft = null;
+    matchState.selectedRight = null;
+    if(matchState.matched === MATCH_PAIRS.length){
+      setTimeout(() => {
+        const wo = document.getElementById('matchWinOverlay');
+        if(wo){ wo.classList.remove('hidden'); wo.classList.add('flex'); }
+        const wm = document.getElementById('matchWinMsg');
+        if(wm) wm.innerText = `${getNamePrefix()}তুমি সব ${toBn(MATCH_PAIRS.length)}টি জোড়া সঠিকভাবে মিলিয়েছ!`;
+        playSound('chime');
+        speakText(`${getNamePrefix()}সাবাস!`);
+      }, 800);
+    }
+  } else {
+    playSound('wrong');
+    const fb = document.getElementById('matchFeedback');
+    if(fb){
+      fb.classList.remove('hidden');
+      fb.className = 'text-center font-black p-3 mt-4 rounded-2xl bg-rose-100 text-rose-800';
+      fb.innerText = `❌ মিল হয়নি — আবার চেষ্টা করো!`;
+    }
+    speakText(getRandomItem(RETRIES));
+    setTimeout(() => {
+      if(elL) elL.classList.remove('selected');
+      if(elR) elR.classList.remove('selected');
+      if(fb) fb.classList.add('hidden');
+    }, 1200);
+    matchState.selectedLeft = null;
+    matchState.selectedRight = null;
+  }
+}
+function restartMatchGame(){
+  playSound('click');
+  const wo = document.getElementById('matchWinOverlay');
+  if(wo){ wo.classList.add('hidden'); wo.classList.remove('flex'); }
+  renderMatchGame();
+}
+
+/* WORD BANK */
+function renderWordBank(){
+  const g = document.getElementById('wordBankGrid');
+  if(!g) return;
+  g.innerHTML = WORD_BANK.map((w, i) => `
+    <div onclick="speakWordBank(${i})" class="bg-white rounded-2xl p-4 border-4 border-sky-200 hover:border-sky-400 shadow-md cursor-pointer transition active:scale-95 text-center space-y-2">
+      <div class="text-4xl">${w.emoji}</div>
+      <h4 class="text-xl font-black text-sky-950 font-title">${w.word}</h4>
+      <p class="text-[10px] text-slate-500 font-bold">${w.breakdown}</p>
+      <p class="text-[11px] bg-sky-100 text-sky-900 font-bold px-2 py-1 rounded-full inline-block">${w.meaning}</p>
+    </div>
+  `).join('');
+}
+function speakWordBank(i){ playSound('click'); const w = WORD_BANK[i]; speakText(`${w.word}। ${w.breakdown}। অর্থ: ${w.meaning}।`); }
+
+/* EXERCISES */
+const EX1 = [
+  { id:1, prompt:'আজকের দিনটি কেমন?', options:['রোদেলা','বৃষ্টির','মেঘলা'], correct:'রোদেলা', template:'আজকের দিনটি {S}।' },
+  { id:2, prompt:'ঝড়ের দিনে কী হয়?', options:['বাতাস আসে','ফুল ফোটে','রোদ ওঠে'], correct:'বাতাস আসে', template:'ঝড়ের দিনে {S}।' },
+  { id:3, prompt:'শীতে গরম কাপড় পরতে হয় কেন?', options:['শীত লাগে','গরম লাগে','ঘুম পায়'], correct:'শীত লাগে', template:'শীতে গরম কাপড় পরতে হয় কারণ {S}।' },
+  { id:4, prompt:'চমৎকার দিনে আমরা কী করি?', options:['বেড়াতে যাই','ঘুমাই','কাঁদি'], correct:'বেড়াতে যাই', template:'চমৎকার দিনে আমরা {S}।' },
+  { id:5, prompt:'মেঘলা দিনে আকাশে কী থাকে?', options:['মেঘ','তারা','চাঁদ'], correct:'মেঘ', template:'মেঘলা দিনে আকাশে {S} থাকে।' }
+];
+const EX2 = [
+  { id:1, text:'আজ অনেক রোদ, খুব গরম লাগছে।', isTrue:true },
+  { id:2, text:'মেঘলা দিনে আকাশ পরিষ্কার থাকে।', isTrue:false },
+  { id:3, text:'ঝড়ের সময় অনেক বাতাস আসে।', isTrue:true },
+  { id:4, text:'শীতে আমরা হালকা কাপড় পরি।', isTrue:false },
+  { id:5, text:'বাংলাদেশ ছয় ঋতুর দেশ।', isTrue:true },
+  { id:6, text:'বসন্তে গাছের পাতা ঝরে যায়।', isTrue:false }
+];
+const EX3 = [
+  { id:1, question:'গ্রীষ্মকালে কেমন লাগে?', options:['গরম','ঠান্ডা','ভেজা'], correct:'গরম' },
+  { id:2, question:'বর্ষাকালে কী হয়?', options:['বৃষ্টি হয়','বরফ পড়ে','পাতা ঝরে'], correct:'বৃষ্টি হয়' },
+  { id:3, question:'কোন ঋতুতে কাশফুল ফোটে?', options:['শরৎ','শীত','বসন্ত'], correct:'শরৎ' },
+  { id:4, question:'কোন ঋতুতে ধান পেকে সোনালি হয়?', options:['হেমন্ত','গ্রীষ্ম','বর্ষা'], correct:'হেমন্ত' },
+  { id:5, question:'কোন ঋতুকে ঋতুরাজ বলা হয়?', options:['বসন্ত','শীত','শরৎ'], correct:'বসন্ত' },
+  { id:6, question:'শীতে আমরা কী পরি?', options:['গরম কাপড়','হালকা কাপড়','ছাতা'], correct:'গরম কাপড়' }
+];
+const EX4 = [
+  { id:1, word:'রোদ', options:['র','দ','ো'], correct:'দ' },
+  { id:2, word:'বর্ষা', options:['ব','ষা','র'], correct:'ষা' },
+  { id:3, word:'শরৎ', options:['শ','ৎ','র'], correct:'ৎ' },
+  { id:4, word:'হেমন্ত', options:['হে','ন','ম'], correct:'ন' },
+  { id:5, word:'বসন্ত', options:['ব','স','ন'], correct:'ন' },
+  { id:6, word:'কাশফুল', options:['কা','ল','শ'], correct:'ল' }
+];
+
+function renderExercises(){
+  const c1 = document.getElementById('ex1Container');
+  const c2 = document.getElementById('ex2Container');
+  const c3 = document.getElementById('ex3Container');
+  const c4 = document.getElementById('ex4Container');
+  if(c1) c1.innerHTML = EX1.map(q => {
+    const ua = ex1Answers[q.id];
+    const line = ua ? q.template.replace('{S}',`<u class="text-amber-700 font-black">${ua.selected}</u>`) : q.prompt;
+    return `<div class="p-3.5 bg-slate-50 rounded-2xl border border-gray-200 space-y-2">
+      <p class="font-bold text-gray-800 text-sm">${q.prompt}</p>
+      <div class="flex flex-wrap items-center gap-2">
+        ${q.options.map(opt => {
+          let cls = "bg-sky-100 hover:bg-sky-200 text-sky-900 border-sky-300";
+          if(ua && ua.selected === opt) cls = ua.isCorrect ? "bg-emerald-500 text-white border-emerald-600" : "bg-rose-500 text-white border-rose-600";
+          return `<button onclick="selectEx1(${q.id}, '${opt}')" class="${cls} px-3 py-1.5 rounded-xl border text-sm font-bold transition">${opt}</button>`;
+        }).join('')}
+      </div>
+      <div class="text-sm font-bold text-sky-900 bg-sky-50/80 p-2 rounded-xl border border-sky-100">${line}</div>
+    </div>`;
+  }).join('');
+
+  if(c2) c2.innerHTML = EX2.map(it => {
+    const ua = ex2Answers[it.id];
+    return `<div class="p-3.5 bg-slate-50 rounded-2xl border border-gray-200 space-y-3">
+      <p class="font-bold text-gray-800 text-sm">"${it.text}"</p>
+      <div class="flex items-center gap-2">
+        <button onclick="selectEx2(${it.id}, true)" class="flex-1 py-2 rounded-xl text-xs font-black border transition ${ua && ua.selected === true ? (ua.isCorrect ? 'bg-emerald-500 text-white border-emerald-600' : 'bg-rose-500 text-white border-rose-600') : 'bg-emerald-100 text-emerald-900 border-emerald-300'}">✓ সত্য</button>
+        <button onclick="selectEx2(${it.id}, false)" class="flex-1 py-2 rounded-xl text-xs font-black border transition ${ua && ua.selected === false ? (ua.isCorrect ? 'bg-emerald-500 text-white border-emerald-600' : 'bg-rose-500 text-white border-rose-600') : 'bg-rose-100 text-rose-900 border-rose-300'}">✕ মিথ্যা</button>
+      </div>
+    </div>`;
+  }).join('');
+
+  if(c3) c3.innerHTML = EX3.map(q => {
+    const ua = ex3Answers[q.id];
+    return `<div class="p-3.5 bg-slate-50 rounded-2xl border border-gray-200 space-y-2">
+      <p class="font-bold text-gray-800 text-sm">${q.question}</p>
+      <div class="flex flex-wrap items-center gap-2">
+        ${q.options.map(opt => {
+          let cls = "bg-indigo-100 hover:bg-indigo-200 text-indigo-900 border-indigo-300";
+          if(ua && ua.selected === opt) cls = ua.isCorrect ? "bg-emerald-500 text-white border-emerald-600" : "bg-rose-500 text-white border-rose-600";
+          return `<button onclick="selectEx3(${q.id}, '${opt}')" class="${cls} px-3 py-1.5 rounded-xl border text-sm font-bold transition">${opt}</button>`;
+        }).join('')}
+      </div>
+    </div>`;
+  }).join('');
+
+  if(c4) c4.innerHTML = EX4.map(q => {
+    const ua = ex4Answers[q.id];
+    return `<div class="p-3.5 bg-slate-50 rounded-2xl border border-gray-200 space-y-2">
+      <p class="font-bold text-gray-800 text-sm">"<span class="text-amber-700">${q.word}</span>" — শেষ বর্ণ?</p>
+      <div class="flex flex-wrap items-center gap-2">
+        ${q.options.map(opt => {
+          let cls = "bg-amber-100 hover:bg-amber-200 text-amber-900 border-amber-300";
+          if(ua && ua.selected === opt) cls = ua.isCorrect ? "bg-emerald-500 text-white border-emerald-600" : "bg-rose-500 text-white border-rose-600";
+          return `<button onclick="selectEx4(${q.id}, '${opt}')" class="${cls} px-4 py-1.5 rounded-xl border text-lg font-black transition">${opt}</button>`;
+        }).join('')}
+      </div>
+    </div>`;
+  }).join('');
+  updateScore();
+}
+function selectEx1(qid, opt){ const q = EX1.find(x => x.id === qid); const ok = (opt === q.correct); ex1Answers[qid] = { selected: opt, isCorrect: ok }; playSound(ok ? 'correct' : 'wrong'); speakText(opt, () => speakText(ok ? getRandomItem(PRAISES) : getRandomItem(RETRIES))); renderExercises(); }
+function selectEx2(qid, choice){ const it = EX2.find(x => x.id === qid); const ok = (choice === it.isTrue); ex2Answers[qid] = { selected: choice, isCorrect: ok }; playSound(ok ? 'correct' : 'wrong'); speakText(choice ? 'সত্য' : 'মিথ্যা', () => speakText(ok ? getRandomItem(PRAISES) : getRandomItem(RETRIES))); renderExercises(); }
+function selectEx3(qid, opt){ const q = EX3.find(x => x.id === qid); const ok = (opt === q.correct); ex3Answers[qid] = { selected: opt, isCorrect: ok }; playSound(ok ? 'correct' : 'wrong'); speakText(opt, () => speakText(ok ? `${getRandomItem(PRAISES)} সঠিক!` : getRandomItem(RETRIES))); renderExercises(); }
+function selectEx4(qid, opt){ const q = EX4.find(x => x.id === qid); const ok = (opt === q.correct); ex4Answers[qid] = { selected: opt, isCorrect: ok }; playSound(ok ? 'correct' : 'wrong'); speakText(opt, () => speakText(ok ? `${getRandomItem(PRAISES)} সঠিক!` : getRandomItem(RETRIES))); renderExercises(); }
+function resetExercises(){ playSound('click'); ex1Answers = {}; ex2Answers = {}; ex3Answers = {}; ex4Answers = {}; renderExercises(); }
+function updateScore(){
+  let total = 0;
+  Object.values(ex1Answers).forEach(a => { if(a.isCorrect) total += 10; });
+  Object.values(ex2Answers).forEach(a => { if(a.isCorrect) total += 10; });
+  Object.values(ex3Answers).forEach(a => { if(a.isCorrect) total += 10; });
+  Object.values(ex4Answers).forEach(a => { if(a.isCorrect) total += 10; });
+  const es = document.getElementById('exerciseScore');
+  if(es) es.innerText = toBn(total);
+  const sb = document.getElementById('starBadge');
+  if(sb){
+    if(total >= 220) sb.innerText = '⭐ ⭐ ⭐ ⭐ ⭐';
+    else if(total >= 160) sb.innerText = '⭐ ⭐ ⭐ ⭐';
+    else if(total >= 90) sb.innerText = '⭐ ⭐ ⭐';
+    else sb.innerText = '⭐ ⭐';
+  }
+}
+
+/* PRINT */
+function openPrintModal(){ playSound('click'); stopAllSpeech(); document.getElementById('printModal').classList.remove('hidden'); document.getElementById('printModal').classList.add('flex'); }
+function closePrintModal(){ document.getElementById('printModal').classList.add('hidden'); document.getElementById('printModal').classList.remove('flex'); }
+function selectAllPrint(s){ ['pr-story','pr-seasons','pr-weather','pr-match','pr-bank','pr-ex1','pr-ex2','pr-ex3','pr-ex4','pr-key'].forEach(id => { const el = document.getElementById(id); if(el) el.checked = s; }); }
+function buildPrintHTML(){
+  const inc = id => { const el = document.getElementById(id); return el && el.checked; };
+  const any = ['pr-story','pr-seasons','pr-weather','pr-match','pr-bank','pr-ex1','pr-ex2','pr-ex3','pr-ex4','pr-key'].some(id => inc(id));
+  if(!any){ alert('অন্তত একটি অংশ নির্বাচন করুন।'); return null; }
+  let h = `<div class="pr-page"><div class="pr-head">
+    <div class="pr-emoji-row">🌤️ 🍃 🌸 ❄️ 🌾 🌧️</div>
+    <div class="pr-kicker">NCTB • আমার বাংলা বই • প্রথম শ্রেণি • পৃষ্ঠা ৬৬-৬৭</div>
+    <h1>🌤️ পাঠ ৪৭ : আজকের দিন 🌈</h1>
+    <div class="pr-meta"><span>শ্রেণি : .....................</span><span>বিষয় : বাংলা</span><span>তারিখ : .....................</span></div>
+    <div class="pr-name">শিক্ষার্থীর নাম : .............................................................................. রোল : .................</div>
+  </div>`;
+  if(inc('pr-story')) h += `<div class="pr-sec"><h2>📖 ১। শুনি ও পড়ি</h2><ol class="pr-ol">${LESSON_SENTENCES.map(s => `<li>${s}</li>`).join('')}</ol></div>`;
+  if(inc('pr-seasons')) h += `<div class="pr-sec"><h2>🍃 ২। বাংলাদেশের ছয় ঋতু</h2><table class="pr-table"><thead><tr><th style="width:18%">ঋতু</th><th style="width:27%">সময়</th><th style="width:55%">বর্ণনা</th></tr></thead><tbody>${SEASONS.map(s => `<tr><td><strong>${s.emoji} ${s.name}</strong></td><td>${s.period}</td><td>${s.desc}</td></tr>`).join('')}</tbody></table></div>`;
+  if(inc('pr-weather')) h += `<div class="pr-sec"><h2>🌤️ ৩। আবহাওয়া</h2><table class="pr-table"><thead><tr><th style="width:20%">আবহাওয়া</th><th style="width:80%">বর্ণনা</th></tr></thead><tbody>${WEATHER_TYPES.map(w => `<tr><td><strong>${w.emoji} ${w.name}</strong></td><td>${w.desc}</td></tr>`).join('')}</tbody></table></div>`;
+  if(inc('pr-match')) h += `<div class="pr-sec"><h2>🔗 ৪। শব্দ মেলাও</h2><table class="pr-table"><thead><tr><th style="width:30%">বাম</th><th style="width:30%">ডান</th><th style="width:40%">যোড়া</th></tr></thead><tbody>${MATCH_PAIRS.map(p => `<tr><td><strong>${p.leftEmoji} ${p.left}</strong></td><td><strong>${p.rightEmoji} ${p.right}</strong></td><td>${p.left} ↔ ${p.right}</td></tr>`).join('')}</tbody></table></div>`;
+  if(inc('pr-bank')) h += `<div class="pr-sec"><h2>📚 ৫। শব্দ ভাণ্ডার</h2><table class="pr-table"><thead><tr><th style="width:20%">শব্দ</th><th style="width:30%">বর্ণ বিশ্লেষণ</th><th style="width:50%">অর্থ</th></tr></thead><tbody>${WORD_BANK.map(w => `<tr><td><strong>${w.emoji} ${w.word}</strong></td><td>${w.breakdown}</td><td>${w.meaning}</td></tr>`).join('')}</tbody></table></div>`;
+  if(inc('pr-ex1')) h += `<div class="pr-sec"><h2>✍️ ৬। অনুশীলন ১</h2>${EX1.map((q,i) => `<div class="pr-q"><div style="font-weight:700">${toBn(i+1)}। ${q.prompt}</div><div class="pr-opts">🔘 বিকল্প: ${q.options.join('  /  ')}</div></div>`).join('')}</div>`;
+  if(inc('pr-ex2')) h += `<div class="pr-sec"><h2>✅ ৭। অনুশীলন ২</h2>${EX2.map((t,i) => `<div class="pr-q"><div style="font-weight:700">${toBn(i+1)}। "${t.text}"</div><div class="pr-tf">✔️ সত্য <span class="pr-box"></span> ✖️ মিথ্যা <span class="pr-box"></span></div></div>`).join('')}</div>`;
+  if(inc('pr-ex3')) h += `<div class="pr-sec"><h2>🎯 ৮। অনুশীলন ৩</h2>${EX3.map((q,i) => `<div class="pr-q"><div style="font-weight:700">${toBn(i+1)}। ${q.question}</div><div class="pr-opts">${q.options.map(o => `${o} <span class="pr-box"></span>`).join('  ')}</div></div>`).join('')}</div>`;
+  if(inc('pr-ex4')) h += `<div class="pr-sec"><h2>🧩 ৯। অনুশীলন ৪</h2>${EX4.map((q,i) => `<div class="pr-q"><div style="font-weight:700">${toBn(i+1)}। "${q.word}" — শেষ বর্ণ : ________</div></div>`).join('')}</div>`;
+  if(inc('pr-key')) h += `<div class="pr-sec pr-pagebreak"><h2>🗝️ উত্তরপত্র</h2><h3>অনুশীলন ১:</h3><p class="pr-ans">${EX1.map((q,i) => `${toBn(i+1)}. ${q.correct}`).join(' | ')}</p><h3>অনুশীলন ২:</h3><p class="pr-ans">${EX2.map((t,i) => `${toBn(i+1)}. ${t.isTrue ? 'সত্য' : 'মিথ্যা'}`).join(' | ')}</p><h3>অনুশীলন ৩:</h3><p class="pr-ans">${EX3.map((q,i) => `${toBn(i+1)}. ${q.correct}`).join(' | ')}</p><h3>অনুশীলন ৪:</h3><p class="pr-ans">${EX4.map((q,i) => `${toBn(i+1)}. ${q.correct}`).join(' | ')}</p><h3>শব্দ মেলাও:</h3><p class="pr-ans">${MATCH_PAIRS.map(p => `${p.left} ↔ ${p.right}`).join(' | ')}</p></div>`;
+  h += `<div class="pr-foot">📚 আমার বাংলা বই • প্রথম শ্রেণি • পাঠ ৪৭ : আজকের দিন | 🎨 মো: সাইফুল্লাহ সরওয়ার ⭐</div></div>`;
+  return h;
+}
+function generatePrint(){ const c = buildPrintHTML(); if(!c) return; playSound('click'); closePrintModal(); stopAllSpeech(); document.getElementById('printArea').innerHTML = c; setTimeout(() => window.print(), 350); }
+window.onafterprint = function(){ document.getElementById('printArea').innerHTML = ''; };
+
+/* DOWNLOAD / PWA / PPT */
+function downloadHTML(){
+  playSound('click'); stopAllSpeech();
+  try{
+    document.getElementById('printArea').innerHTML = '';
+    const pm = document.getElementById('printModal'); if(pm){ pm.classList.add('hidden'); pm.classList.remove('flex'); }
+    const im = document.getElementById('installModal'); if(im){ im.classList.add('hidden'); im.classList.remove('flex'); }
+    closeDrawer();
+    const fullHTML = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+    const blob = new Blob([fullHTML], { type: 'text/html;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'পাঠ-৪৭-আজকের-দিন.html';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(url), 500);
+    showToast('✅ ডাউনলোড সম্পন্ন!');
+  } catch(e){ console.error(e); alert('ডাউনলোড করা যায়নি।'); }
+}
+function showToast(msg){
+  const t = document.createElement('div');
+  t.style.cssText = `position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:linear-gradient(135deg,#0284c7,#0ea5e9);color:#fff;padding:12px 22px;border-radius:14px;font-family:'Hind Siliguri',sans-serif;font-weight:700;font-size:14px;box-shadow:0 10px 30px rgba(0,0,0,.25);z-index:9999;opacity:0;transition:all .35s ease;pointer-events:none;max-width:90vw;text-align:center;`;
+  t.textContent = msg;
+  document.body.appendChild(t);
+  requestAnimationFrame(() => { t.style.opacity = '1'; t.style.transform = 'translateX(-50%) translateY(0)'; });
+  setTimeout(() => { t.style.opacity = '0'; t.style.transform = 'translateX(-50%) translateY(80px)'; setTimeout(() => t.remove(), 400); }, 3200);
+}
+
+let deferredInstallPrompt = null;
+let isInstalled = false;
+if(window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) isInstalled = true;
+function isFileProtocol(){ return location.protocol === 'file:'; }
+function isSecureContextSafe(){ return location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1'; }
+function createManifest(){
+  try{
+    const iconSvg = (size) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${size} ${size}"><rect width="${size}" height="${size}" fill="#0284c7" rx="${size*0.18}"/><text y="${size*0.72}" x="${size/2}" text-anchor="middle" font-size="${size*0.6}">🌤️</text></svg>`;
+    const dataURI = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(iconSvg(192));
+    const manifest = { name: "আজকের দিন — পাঠ ৪৭", short_name: "আজকের দিন", description: "১ম শ্রেণির বাংলা পাঠ ৪৭ — ছয় ঋতুর বাংলাদেশ", start_url: ".", scope: ".", display: "standalone", orientation: "any", background_color: "#dbeafe", theme_color: "#0284c7", lang: "bn", dir: "ltr", icons: [{ src: dataURI, sizes: "192x192", type: "image/svg+xml", purpose: "any" }] };
+    const mURI = 'data:application/manifest+json;charset=utf-8,' + encodeURIComponent(JSON.stringify(manifest));
+    let link = document.querySelector('link[rel="manifest"]');
+    if(!link){ link = document.createElement('link'); link.rel = 'manifest'; document.head.appendChild(link); }
+    link.href = mURI;
+  } catch(e){}
+}
+async function registerServiceWorker(){
+  if(!('serviceWorker' in navigator) || !isSecureContextSafe()) return;
+  const swCode = `self.addEventListener('install',e=>self.skipWaiting());self.addEventListener('activate',e=>e.waitUntil(self.clients.claim()));self.addEventListener('fetch',e=>e.respondWith(fetch(e.request).catch(()=>caches.match(e.request))));`;
+  try{ const blob = new Blob([swCode], { type:'application/javascript' }); const url = URL.createObjectURL(blob); await navigator.serviceWorker.register(url, { scope: './' }); } catch(e){}
+}
+window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); deferredInstallPrompt = e; });
+window.addEventListener('appinstalled', () => { isInstalled = true; deferredInstallPrompt = null; const btn = document.getElementById('installBtn'); const txt = document.getElementById('installBtnText'); if(btn){ btn.classList.remove('install-pulse'); btn.className = 'drawer-btn btn-teal'; } if(txt) txt.innerText = '✅ ইনস্টল করা আছে'; });
+function handleInstallClick(){ playSound('click'); if(isInstalled){ showToast('✅ ইনস্টল করা আছে!'); return; } if(deferredInstallPrompt){ closeDrawer(); openInstallModal('native'); return; } if(isFileProtocol()){ closeDrawer(); openInstallModal('file'); return; } closeDrawer(); openInstallModal('manual'); }
+function triggerNativeInstall(){ if(!deferredInstallPrompt){ showToast('⚠️ পাওয়া যাচ্ছে না।'); return; } deferredInstallPrompt.prompt(); deferredInstallPrompt.userChoice.then(c => { deferredInstallPrompt = null; closeInstallModal(); }); }
+function buildInstallSteps(mode){
+  const steps = [];
+  if(mode === 'file'){ steps.push({icon:'⚠️', title:'লোকাল ফাইলে ইনস্টল হয় না', body:'আপনি <strong>file://</strong> থেকে খুলেছেন।'}); steps.push({icon:'⚡', title:'সমাধান : Netlify Drop', body:'<strong>app.netlify.com/drop</strong> খুলুন → HTML ফাইল ড্র্যাগ করুন → HTTPS লিংক Chrome-এ খুলুন।'}); return steps; }
+  if(mode === 'native'){ steps.push({icon:'✨', title:'ব্রাউজার ইনস্টল সাপোর্ট করছে', body:'সবুজ বাক্সে ক্লিক করুন।'}); return steps; }
+  steps.push({icon:'💻', title:'ব্রাউজার মেনু', body:'⋮ → Install app অথবা ⊕ Install আইকন।'});
+  steps.push({icon:'✅', title:'সফল হলে', body:'হোম স্ক্রিনে আজকের দিন আইকন।'});
+  return steps;
+}
+function openInstallModal(mode){
+  const nb = document.getElementById('installNativeBox');
+  const header = document.getElementById('installHeaderMsg');
+  const stepsBox = document.getElementById('installSteps');
+  if(mode === 'native' && deferredInstallPrompt){ nb.classList.remove('hidden'); header.innerText = '💡 অথবা নিচের ধাপ দেখুন:'; }
+  else { nb.classList.add('hidden'); header.innerText = mode === 'file' ? '⚠️ file:// থেকে চলছে।' : '💡 ব্রাউজার অনুযায়ী ধাপ:'; }
+  stepsBox.innerHTML = buildInstallSteps(mode).map(s => `<div class="flex gap-3 bg-slate-50 border-2 border-slate-200 rounded-2xl p-3"><div class="text-2xl">${s.icon}</div><div><p class="font-black text-sm">${s.title}</p><p class="text-xs text-slate-600">${s.body}</p></div></div>`).join('');
+  document.getElementById('installModal').classList.remove('hidden'); document.getElementById('installModal').classList.add('flex');
+}
+function closeInstallModal(){ document.getElementById('installModal').classList.add('hidden'); document.getElementById('installModal').classList.remove('flex'); }
+createManifest(); registerServiceWorker();
+
+function downloadPPT(){
+  if(typeof PptxGenJS === 'undefined'){ alert('লাইব্রেরি লোড হয়নি।'); return; }
+  const b = document.getElementById('pptBtnText');
+  const old = b.innerText; b.innerText = '⏳...';
+  playSound('click'); stopAllSpeech();
+  setTimeout(() => {
+    try{ buildPPTX(); } catch(e){ console.error(e); alert('PPT ব্যর্থ।'); }
+    finally{ b.innerText = old; }
+  }, 100);
+}
+function buildPPTX(){
+  const pptx = new PptxGenJS();
+  pptx.layout = 'LAYOUT_16x9';
+  const FONT = 'Nirmala UI';
+  const SKY = '0284c7', AMBER = 'f59e0b', WHITE = 'FFFFFF', DARK = '075985', TEXT = '0F172A';
+  function hdr(s, t){
+    s.addShape('rect', { x: 0, y: 0, w: 10, h: .85, fill: { color: SKY } });
+    s.addShape('rect', { x: 0, y: .85, w: 10, h: .06, fill: { color: AMBER } });
+    s.addText(t, { x: .45, y: 0, w: 9.1, h: .85, fontSize: 22, bold: true, color: WHITE, fontFace: FONT, valign: 'middle', align: 'left' });
+  }
+  let s = pptx.addSlide();
+  s.background = { color: SKY };
+  s.addShape('rect', { x: 0, y: 0, w: 10, h: .28, fill: { color: AMBER } });
+  s.addShape('rect', { x: 0, y: 5.34, w: 10, h: .29, fill: { color: AMBER } });
+  s.addText('🌤️ ☀️ 🌧️ 🌪️ ❄️ 🌈', { x: 0, y: .35, w: 10, h: .5, fontSize: 20, align: 'center' });
+  s.addText('📚 আমার বাংলা বই — প্রথম শ্রেণি', { x: 0, y: 2.3, w: 10, h: .5, fontSize: 18, bold: true, color: 'BAE6FD', align: 'center', fontFace: FONT });
+  s.addText('পাঠ ৪৭ : আজকের দিন 🌤️', { x: 0, y: 2.9, w: 10, h: .9, fontSize: 32, bold: true, color: 'FDE68A', align: 'center', fontFace: FONT });
+  s.addText('ছয় ঋতুর বাংলাদেশ 🍃🌸', { x: 0, y: 3.8, w: 10, h: .4, fontSize: 16, color: 'fff', align: 'center', fontFace: FONT });
+  s.addText('🎨 মো: সাইফুল্লাহ সরওয়ার ⭐', { x: 0, y: 4.45, w: 10, h: .5, fontSize: 14, bold: true, color: 'FDE68A', align: 'center', fontFace: FONT });
+  s = pptx.addSlide(); s.background = { color: 'F8FAFC' };
+  hdr(s, '📖 শুনি ও পড়ি');
+  s.addText(LESSON_SENTENCES.map((t, i) => ({ text: `${toBn(i + 1)}। ${t}`, options: { breakLine: true } })), { x: .7, y: 1.2, w: 8.6, h: 4, fontSize: 16, fontFace: FONT, color: TEXT, lineSpacing: 32 });
+  s = pptx.addSlide(); s.background = { color: 'F8FAFC' };
+  hdr(s, '🍃 বাংলাদেশের ছয় ঋতু');
+  const rows = [['ঋতু', 'সময়', 'বর্ণনা'].map(t => ({ text: t, options: { bold: true, color: WHITE, fill: { color: SKY }, align: 'center' } }))];
+  SEASONS.forEach(sn => rows.push([
+    { text: `${sn.emoji} ${sn.name}`, options: { bold: true, color: DARK, fontSize: 12 } },
+    { text: sn.period, options: { color: TEXT, fontSize: 10 } },
+    { text: sn.desc, options: { color: TEXT, fontSize: 10 } }
+  ]));
+  s.addTable(rows, { x: .5, y: 1.1, w: 9, colW: [1.6, 2.2, 5.2], fontFace: FONT, fontSize: 11, border: { pt: 1, color: 'BAE6FD' }, rowH: .55 });
+  s = pptx.addSlide(); s.background = { color: SKY };
+  s.addShape('rect', { x: 0, y: 0, w: 10, h: .28, fill: { color: AMBER } });
+  s.addShape('rect', { x: 0, y: 5.34, w: 10, h: .29, fill: { color: AMBER } });
+  s.addText('ধন্যবাদ 🌤️', { x: 0, y: 1.7, w: 10, h: .9, fontSize: 38, bold: true, color: 'FDE68A', align: 'center', fontFace: FONT });
+  s.addText('🎨 মো: সাইফুল্লাহ সরওয়ার ⭐', { x: 0, y: 4.2, w: 10, h: .5, fontSize: 15, bold: true, color: 'FDE68A', align: 'center', fontFace: FONT });
+  pptx.writeFile({ fileName: 'পাঠ-৪৭-আজকের-দিন.pptx' }).catch(err => { console.error(err); alert('সেভ ব্যর্থ।'); });
+}
+
+/* INIT */
+window.addEventListener('load', () => {
+  renderPassage();
+  renderReadingSeasons();
+  renderSeasons();
+  renderWeather();
+  renderMatchGame();
+  renderWordBank();
+  renderExercises();
+  updateHeaderGreeting();
+  updateDrawerSound();
+  syncNameInputs(childName);
+  const qv1 = document.getElementById('questionVoiceToggle');
+  if(qv1) qv1.checked = questionVoiceEnabled;
+  const inp = document.getElementById('childNameInput');
+  if(inp) inp.value = childName;
+  if('speechSynthesis' in window){ window.speechSynthesis.onvoiceschanged = () => { window.speechSynthesis.getVoices(); }; }
+  if(isInstalled){ const btn = document.getElementById('installBtn'); const txt = document.getElementById('installBtnText'); if(btn){ btn.classList.remove('install-pulse'); btn.className = 'drawer-btn btn-teal'; } if(txt) txt.innerText = '✅ ইনস্টল করা আছে'; }
+
+  // Show reading tab by default
+  switchTab('reading');
+});
+</script>
+</body>
+</html>
